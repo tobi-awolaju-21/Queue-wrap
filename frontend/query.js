@@ -24,8 +24,8 @@ words.forEach(function(word, index) {
             selectedButton.style.color = "";
         }
         // Set the background color of the clicked button
-        this.style.backgroundColor = "grey";
-        this.style.color = "white";
+        this.style.backgroundColor = "#e6acff";
+        this.style.color = "black";
 
         // Set the clicked button as the currently selected button
         selectedButton = this;
