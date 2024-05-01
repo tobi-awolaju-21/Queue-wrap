@@ -64,7 +64,7 @@ body{
     
     /* Apply animation to button */
     .click-animation {
-        animation: clickAnimation 1s ease;
+        animation: clickAnimation 0.3s ease;
     }
 
 
