@@ -25,6 +25,6 @@ $(document).ready(function(){
     // Calculate the halfway point
     const halfway = container.scrollWidth / 4;
     // Scroll to halfway
-    container.scrollLeft = halfway+16;
+    container.scrollLeft = halfway+8;
 
     

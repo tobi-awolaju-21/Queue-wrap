@@ -1,12 +1,21 @@
 body{
 padding: 0px;
-overflow:hidden;
+margin:0px;
 background-color: #ffffff;
+overflow-y: hidden;
 }
 
 
+.block {
+    height: 33vh;
+    max-height: 33.3vh;
+    width: 100vw;
+  }
+
 .container {
+  text-align: center;
     width: 100%;
+    max-height: 33.3vh;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
@@ -16,33 +25,32 @@ background-color: #ffffff;
   .square1 {
     width: 30vh;
     height: 30vh;
-    background-color: #02b8857d;
+    max-height: 30vh;
+    background-color: #0000007d;
     display: inline-block;
-    margin-right: 20px; /* Adjust as needed */
+    margin-right: 5px; /* Adjust as needed */
+    scale: 0.85;
   }
 
   .square2 {
     width: 30vh;
     height: 30vh;
-    background-color: #02b885;
+    max-height: 30vh;
+    background-color: #000000;
     display: inline-block;
-    margin-right: 20px; /* Adjust as needed */
+    margin-right: 5px; /* Adjust as needed */
   }
 
   .square3 {
     width: 30vh;
     height: 30vh;
-    background-color: #02b8857d;
+    max-height: 30vh;
+    background-color: #0000007d;
     display: inline-block;
-    margin-right: 20px; /* Adjust as needed */
+    margin-right: 5px; /* Adjust as needed */
+    scale: 0.85;
   }
 
-  .block {
-    height: 33vh;
-    max-height: 33.3vh;
-    width: 100vw;
-    text-align: center;
-  }
   .ht{
     margin: 0px;
     color: #ffffff;
@@ -54,6 +62,7 @@ background-color: #ffffff;
   h2{
     text-align: center;
     margin: 40px;
+    font-size:large;
   }
 
   .dashed-divider {
@@ -62,13 +71,20 @@ background-color: #ffffff;
     margin: 20px 0; /* Adjust margin as needed */
 }
 
+.buttonparent{
+width: 100vw;
+position: fixed;
+bottom:100px;
+}
+
 button{
-margin: 30px;
-width: 60vw;
-height: 12vw;
+width: 250px;
+height: 50px;
 background-color: rgb(39, 39, 39);
 color:#fff;
 border-radius: 50px;
+position: fixed;
+left:calc(50vw - 125px)
 }
 
  /* Define animation */
