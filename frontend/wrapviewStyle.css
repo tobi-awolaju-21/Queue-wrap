@@ -1,0 +1,20 @@
+body{
+    padding: 0px;
+    margin:0px;
+    }
+    
+
+ .status-viewer {
+  display: flex;
+  overflow: hidden;
+}
+
+.status-content {
+  width: 100%;
+  flex: 0 0 auto;
+  display: none;
+}
+
+.status-content.active {
+  display: block;
+}
