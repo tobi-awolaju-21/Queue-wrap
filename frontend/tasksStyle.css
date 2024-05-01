@@ -85,7 +85,10 @@ body{
       }
       p{
         color:#6c6c6c;
-        margin: 20px;
+        margin-bottom: 50px;
+      }
+      h3{
+        color: #7f34a0;
       }
     
       .dashed-divider {
@@ -147,7 +150,7 @@ body{
   margin-left: 8px;
   color:#ffffff;
   outline: none;
-  border: 1px solid #cecece;
+  border: 1px solid #28ab65;
   width: 100px;
   height: 100px;
   font-size:xxx-large;
@@ -157,23 +160,39 @@ body{
   
   .b2{
     border-radius: 100px; /* Adjust the value to change the roundness */
-  background-color: #747474;
+  background-color: #afafaf;
   margin-left: 8px;
-  color:#ffffff;
+  color:#000000;
   outline: none;
-  border: 1px solid #4f4f4f;
+  border:none;
   width: 100px;
   height: 100px;
   font-size:xxx-large;
   box-shadow: 14px 16px rgb(0, 0, 0); /* Add shadow */
   }
   
+
+  .b6{
+    border-radius: 100px; /* Adjust the value to change the roundness */
+  background-color: #e6acff;
+  margin-left: 8px;
+  color:#000000;
+  outline: none;
+  border: 1px solid #e6acff;
+  width: 100px;
+  height: 100px;
+  font-size:xxx-large;
+  box-shadow: 14px 16px rgb(35, 0, 35); /* Add shadow */
+  }
+
+
   
   .connection {
           position: absolute;
           border: 1px dashed grey;
           pointer-events: none;
       }
+      
   
 
   
