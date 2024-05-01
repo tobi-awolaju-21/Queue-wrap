@@ -2,7 +2,6 @@ body{
     padding: 0px;
     margin:0px;
     background-color: #ffffff;
-    overflow-y: hidden;
     }
     
     
@@ -149,10 +148,10 @@ body{
   color:#ffffff;
   outline: none;
   border: 1px solid #cecece;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   font-size:xx-large;
-  box-shadow: 6px 8px rgb(0, 103, 45); /* Add shadow */
+  box-shadow: 14px 16px rgb(0, 103, 45); /* Add shadow */
   }
   
   
@@ -163,10 +162,10 @@ body{
   color:#ffffff;
   outline: none;
   border: 1px solid #4f4f4f;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   font-size:xx-large;
-  box-shadow: 6px 8px rgb(0, 0, 0); /* Add shadow */
+  box-shadow: 14px 16px rgb(0, 0, 0); /* Add shadow */
   }
   
   
