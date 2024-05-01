@@ -55,7 +55,7 @@ let trail = [];
         let canvas = createCanvas(windowWidth, windowHeight);
         canvas.parent('p5-container'); // Set parent element for the canvas
         canvas.position(0, 0); // Position canvas at the top-left corner
-        canvas.style('z-index', '0'); // Set canvas behind other elements
+        canvas.style('z-index', '-1'); // Set canvas behind other elements
     }
 
     function draw() {
