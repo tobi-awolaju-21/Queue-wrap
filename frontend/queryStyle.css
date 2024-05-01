@@ -108,11 +108,12 @@ body{
       left: calc(50vw - 125px);
       border: none; /* Remove default border */
       box-shadow: none; /* Remove shadow */
+
     }
 
     
     button {
-        font-size:x-large;
+        font-size:medium;
         padding: 8px;
         padding-top:4px;
         padding-bottom:4px;
