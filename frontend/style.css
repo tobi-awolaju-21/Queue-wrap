@@ -1,0 +1,84 @@
+body{
+padding: 0px;
+overflow:hidden;
+background-color: #ffffff;
+}
+
+
+.container {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+  }
+  
+  .square1 {
+    width: 30vh;
+    height: 30vh;
+    background-color: #02b8857d;
+    display: inline-block;
+    margin-right: 20px; /* Adjust as needed */
+  }
+
+  .square2 {
+    width: 30vh;
+    height: 30vh;
+    background-color: #02b885;
+    display: inline-block;
+    margin-right: 20px; /* Adjust as needed */
+  }
+
+  .square3 {
+    width: 30vh;
+    height: 30vh;
+    background-color: #02b8857d;
+    display: inline-block;
+    margin-right: 20px; /* Adjust as needed */
+  }
+
+  .block {
+    height: 33vh;
+    max-height: 33.3vh;
+    width: 100vw;
+    text-align: center;
+  }
+  .ht{
+    margin: 0px;
+    color: #ffffff;
+    font-size: xxx-large;
+    font-weight: bolder;
+    text-align: cen;
+  }
+  
+  h2{
+    text-align: center;
+    margin: 40px;
+  }
+
+  .dashed-divider {
+    border: none;
+    border-top: 2px dashed #cbcbcb; /* Adjust color and thickness as needed */
+    margin: 20px 0; /* Adjust margin as needed */
+}
+
+button{
+margin: 30px;
+width: 60vw;
+height: 12vw;
+background-color: rgb(39, 39, 39);
+color:#fff;
+border-radius: 50px;
+}
+
+ /* Define animation */
+ @keyframes clickAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Apply animation to button */
+.click-animation {
+    animation: clickAnimation 0.3s ease;
+}
