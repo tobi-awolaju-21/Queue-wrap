@@ -1,0 +1,123 @@
+body{
+    padding: 0px;
+    margin:0px;
+    background-color: #ffffff;
+    overflow-y: hidden;
+    }
+    
+    
+    .block1 {
+        height: 33vh;
+        max-height:50vh;
+        width: 100vw;
+      }
+    
+   
+      .block2 {
+        height: 33vh;
+        max-height: 50vh;
+        width: 100vw;
+      }
+
+      .block3 {
+        height: 33vh;
+        max-height:50vh;
+        width: 100vw;
+      }
+    
+   
+    
+    .container {
+      text-align: center;
+        width: 100%;
+        max-height: 33.3vh;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+      }
+      
+      .square1 {
+        width: 30vh;
+        height: 30vh;
+        max-height: 30vh;
+        background-color: #0000007d;
+        display: inline-block;
+        margin-right: 5px; /* Adjust as needed */
+        scale: 0.85;
+      }
+    
+      .square2 {
+        width: 30vh;
+        height: 30vh;
+        max-height: 30vh;
+        background-color: #000000;
+        display: inline-block;
+        margin-right: 5px; /* Adjust as needed */
+      }
+    
+      .square3 {
+        width: 30vh;
+        height: 30vh;
+        max-height: 30vh;
+        background-color: #0000007d;
+        display: inline-block;
+        margin-right: 5px; /* Adjust as needed */
+        scale: 0.85;
+      }
+    
+      .ht{
+        margin: 0px;
+        color: #ffffff;
+        font-size: xxx-large;
+        font-weight: bolder;
+        text-align: cen;
+      }
+      
+      h2{
+        text-align: center;
+        margin: 40px;
+        font-size:large;
+      }
+
+      h1{
+        font-size:50px;
+        width: 80vw;
+        margin: 30px;
+      }
+    
+      .dashed-divider {
+        border: none;
+        border-top: 2px dashed #cbcbcb; /* Adjust color and thickness as needed */
+        margin: 20px 0; /* Adjust margin as needed */
+    }
+    
+    .buttonparent{
+    width: 100vw;
+    position: fixed;
+    bottom:100px;
+    }
+    
+    button {
+      width: 250px;
+      height: 50px;
+      background-color: rgb(0, 0, 0);
+      color: #fff;
+      border-radius: 50px;
+      position: fixed;
+      left: calc(50vw - 125px);
+      border: none; /* Remove default border */
+      box-shadow: none; /* Remove shadow */
+    }
+    
+     /* Define animation */
+     @keyframes clickAnimation {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+    
+    /* Apply animation to button */
+    .click-animation {
+        animation: clickAnimation 0.3s ease;
+    }
