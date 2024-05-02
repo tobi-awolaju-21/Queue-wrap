@@ -21,4 +21,7 @@ if (currentUser) {
 } else {
     // User not logged in
     console.log('No user logged in');
+    window.close();
+    window.location.href = "index.html";
+
 }
