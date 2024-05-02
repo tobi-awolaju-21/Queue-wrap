@@ -7,6 +7,8 @@ var optionsDiv = document.getElementById("options");
 // Variable to store the currently selected button
 var selectedButton = null;
 
+var desination;
+
 // Loop through the words array
 words.forEach(function(word, index) {
     // Create a new button element
@@ -31,6 +33,7 @@ words.forEach(function(word, index) {
         selectedButton = this;
         // Log the word when clicked
         console.log(this.textContent);
+        desination = this.textContent;
     });
     // Append the button element to the options div
     optionsDiv.appendChild(buttonElement);
@@ -48,12 +51,12 @@ document.getElementById("done").addEventListener("click", function() {
 // push reponse to firebase rtdb as json
 
 var jsonData = {
-    key1: 'value1',
-    key2: 'value2',
+    timestamp: 'value1',
+    desination: desination,
     // Add more key-value pairs as needed
   };
 
-var ref = firebase.database().ref('tobi/today');
+var ref = firebase.database().ref('tobi/wraps');
 
 ref.push(jsonData, function(error) {
   if (error) {
