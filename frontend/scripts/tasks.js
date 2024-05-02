@@ -9,6 +9,20 @@
 
 
  
+
+ //next page
+document.getElementById("play0").addEventListener("click", function() {
+    // Add click animation class to the button
+    this.classList.add("click-animation");
+
+    // Redirect to home.html after the animation ends
+    setTimeout(() => {
+        window.location.href = "wrap.html";
+    }, 300); // 0.3 seconds for the animation duration
+});
+
+
+
 //next page
 document.getElementById("play1").addEventListener("click", function() {
     // Add click animation class to the button
