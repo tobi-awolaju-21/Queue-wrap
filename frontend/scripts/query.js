@@ -77,11 +77,6 @@ if (storedData) {
 
 
 
-
-
-
-
-
 //next page
 document.getElementById("done").addEventListener("click", function() {
     // Add click animation class to the button
