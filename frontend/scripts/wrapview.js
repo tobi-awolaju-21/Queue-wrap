@@ -104,12 +104,11 @@ document.getElementById('close').addEventListener('click', function() {
 //color changing
 // Function to get the background color at a specific point
 function getBackgroundColor(x, y) {
-  var canvas = document.createElement('canvas');
-  var context = canvas.getContext('2d');
-  context.drawImage(document.documentElement, 0, 0, window.innerWidth, window.innerHeight);
+  var context = document.createElement('canvas').getContext('2d');
   var pixel = context.getImageData(x, y, 1, 1).data;
   return 'rgb(' + pixel[0] + ',' + pixel[1] + ',' + pixel[2] + ')';
 }
+
 
 // Function to calculate contrasting color
 function getContrastColor(hexcolor) {
