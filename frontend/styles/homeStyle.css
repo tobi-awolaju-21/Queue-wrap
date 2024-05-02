@@ -6,11 +6,22 @@ body{
     
     
     .block1 {
+        position: relative;
         height: 50vh;
         max-height:50vh;
         width: 100vw;
         background-color: rgb(143, 143, 143);
       }
+
+      #pfp {
+        position: sticky;
+        top: 0;
+        width: 50vw;
+        height: 50vw;
+    }
+
+
+
     
    
       .block2 {
