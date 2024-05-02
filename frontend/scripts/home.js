@@ -136,6 +136,7 @@ var emailWithoutDomain = email.replace(/@gmail\.com$/, "");
     database.ref(path).set(dummyData)
       .then(function() {
         console.log("Dummy data sent successfully!");
+        
       })
       .catch(function(error) {
         console.error("Error sending dummy data: ", error);
