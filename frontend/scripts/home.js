@@ -81,63 +81,6 @@ document.getElementById("newwrapButton").addEventListener("click", function () {
 
   // Redirect to home.html after the animation ends
   setTimeout(() => {
-
-
-
-    //create new wrap root in firebase rtdb
-    // Initialize Firebase
-    var firebaseConfig = {
-      apiKey: "AIzaSyALxLdpqTkaYDrDILveqL4y_CTpSpnseiw",
-      authDomain: "queuewrap.firebaseapp.com",
-      projectId: "queuewrap",
-      storageBucket: "queuewrap.appspot.com",
-      messagingSenderId: "181118240793",
-      appId: "1:181118240793:web:190390eeffe69e34178288",
-      measurementId: "G-QH07EEN0HY"
-    };
-    firebase.initializeApp(firebaseConfig);
-
-    // Reference to your Firebase Realtime Database
-    var database = firebase.database();
-
-    // Path where you want to send the dummy JSON
-    var emailWithoutDomain = email.replace(/@gmail\.com$/, "");
-    var path = "emailWithoutDomain/wrapdate";
-
-    // Dummy JSON data
-    var dummyData = {
-      key1: "value1",
-      key2: "value2",
-      key3: {
-        nestedKey1: "nestedValue1",
-        nestedKey2: "nestedValue2"
-      }
-    };
-
-    // Function to send dummy JSON to Firebase Realtime Database
-    function sendDummyData() {
-      database.ref(path).set(dummyData)
-        .then(function () {
-          console.log("Dummy data sent successfully!");
-
-        })
-        .catch(function (error) {
-          console.error("Error sending dummy data: ", error);
-        });
-    }
-
-    // Call the function to send dummy data
-    sendDummyData();
-
-
-
-
-
-
-
-
-
-
     window.location.href = "query.html";
   }, 300); // 0.3 seconds for the animation duration
 });
