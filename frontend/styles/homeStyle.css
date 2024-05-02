@@ -20,6 +20,7 @@ body{
         left: calc(50vw - 25vw);
         width: 50vw;
         height: 50vw;
+        margin: 10px;
     }
 
 
@@ -27,8 +28,7 @@ body{
       position: sticky;
       top:calc(25vh - 25vw);
       width: 35vw;
-      height:35vw;hv
-      margin:35px;
+      height:35vw;
       background-color: #ff5500;
     }
 
