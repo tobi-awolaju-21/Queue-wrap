@@ -37,9 +37,21 @@
         
     </div>
       <!-- Include Firebase SDK via CDN -->
-      <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
-  
+      <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js"></script>
+      <script>
+        // Initialize Firebase
+        var firebaseConfig = {
+    apiKey: "AIzaSyALxLdpqTkaYDrDILveqL4y_CTpSpnseiw",
+    authDomain: "queuewrap.firebaseapp.com",
+    projectId: "queuewrap",
+    storageBucket: "queuewrap.appspot.com",
+    messagingSenderId: "181118240793",
+    appId: "1:181118240793:web:190390eeffe69e34178288",
+    measurementId: "G-QH07EEN0HY"
+  };
+  firebase.initializeApp(firebaseConfig);
+      </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./scripts/home.js"></script>
 </body>
