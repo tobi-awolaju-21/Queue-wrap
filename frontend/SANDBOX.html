@@ -1,37 +1,17 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queue Wrap</title>
-    <link rel="stylesheet" href="./styles/queryStyle.css" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scope=1.0">
+  <title>Send Dummy JSON to Firebase</title>
 </head>
-
-
-
 <body>
-    <div class="block1">
-    <h1> Where are you going to ?</h1>
-    </div>
+  <button id="sendButton">Send Dummy JSON to Firebase</button>
 
-
-
-
-    <div class="block2"> 
-        <div id="options"></div>
-    </div>
-
-
-    <div class="block3">
-        <div class="buttonparent">
-            <hr class="dashed-divider"></hr>   
-       <button class="button1" id="done">Done</button>
-        </div>
-    </div>
-
-
-
-    
    <!-- Include Firebase SDK via CDN -->
    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database-compat.js"></script>
@@ -51,8 +31,23 @@
 };
        // Initialize Firebase
        firebase.initializeApp(firebaseConfig);
+       
+       
+
       </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./scripts/query.js"></script>
+
+
+<script>
+    document.getElementById('sendButton').addEventListener('click', function() {
+        console.log("done");
+      var database = firebase.database();
+      var ref = database.ref('tobi/today'); // Replace 'your-data-node' with the desired node name
+      ref.push({
+        key: 'value' // Replace 'key' and 'value' with your data
+      });
+    });
+    
+</script>
+  
 </body>
 </html>

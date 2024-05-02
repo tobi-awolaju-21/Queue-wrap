@@ -42,12 +42,34 @@ words.forEach(function(word, index) {
 document.getElementById("done").addEventListener("click", function() {
     // Add click animation class to the button
     this.classList.add("click-animation");
+     
 
-    // Redirect to home.html after the animation ends
-    setTimeout(() => {
-        window.location.href = "tasks.html";
-    }, 300); // 0.3 seconds for the animation duration
+  //generate task map using gemini api
+// push reponse to firebase rtdb as json
+
+var jsonData = {
+    key1: 'value1',
+    key2: 'value2',
+    // Add more key-value pairs as needed
+  };
+
+var ref = firebase.database().ref('tobi/today');
+
+ref.push(jsonData, function(error) {
+  if (error) {
+    console.error("Data could not be saved." + error);
+  } else {
+    console.log("New wrap created");
+      // go to this url when push is successful 
+  window.location.href = "tasks.html";
+  }
 });
+
+
+});
+
+
+
 
 
 

@@ -13,7 +13,6 @@ if (currentUser) {
 
 }
 
-
 // Retrieve the user object from localStorage
 const storedData = localStorage.getItem('currentUser');
 
@@ -29,57 +28,27 @@ if (storedData) {
     console.log("Stored user object is more than 24hrs  old.");
     window.location.href = "index.html";
   } else {
-
-
-
-
-
-
-
-
-
-
     const userData = storedUser;
     // User object is still valid, use it
     console.log(storedUser);
-
-
     const username = userData.displayName;
     const email = userData.email;
     const photoURL = userData.photoURL;
-
-
     // Update username
     document.getElementById("username").innerText = username;
-
     // Update profile picture
     const img = document.getElementById("pfp");
     img.src = photoURL;
-
-    //make funkie art
-
-
-    console.log("Username:", username);
-    console.log("Email:", email);
-    console.log("photoURL:", photoURL);
-
   }
 } else {
   console.log("No user data stored in localStorage.");
   window.location.href = "index.html";
 }
-
-
-
-
-
-
 //next page
 document.getElementById("newwrapButton").addEventListener("click", function () {
   // Add click animation class to the button
   this.classList.add("click-animation");
-
-  // Redirect to home.html after the animation ends
+  // Redirect to query.html after the animation ends
   setTimeout(() => {
     window.location.href = "query.html";
   }, 300); // 0.3 seconds for the animation duration
