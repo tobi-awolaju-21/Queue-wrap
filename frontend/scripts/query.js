@@ -8,6 +8,7 @@ var optionsDiv = document.getElementById("options");
 var selectedButton = null;
 
 var desination;
+var email;
 
 // Loop through the words array
 words.forEach(function(word, index) {
@@ -41,36 +42,6 @@ words.forEach(function(word, index) {
 
 
 
-//next page
-document.getElementById("done").addEventListener("click", function() {
-    // Add click animation class to the button
-    this.classList.add("click-animation");
-     
-
-  //generate task map using gemini api
-// push reponse to firebase rtdb as json
-
-var jsonData = {
-    timestamp: 'value1',
-    desination: desination,
-    // Add more key-value pairs as needed
-  };
-
-var ref = firebase.database().ref('tobi/wraps');
-
-ref.push(jsonData, function(error) {
-  if (error) {
-    console.error("Data could not be saved." + error);
-  } else {
-    console.log("New wrap created");
-      // go to this url when push is successful 
-  window.location.href = "tasks.html";
-  }
-});
-
-
-});
-
 
 
 
@@ -94,9 +65,46 @@ if (storedData) {
         window.location.href = "index.html";
     } else {
         // User object is still valid, use it
-        console.log(storedUser);
+        const userData = storedUser;
+        // User object is still valid, use it
+         email = userData.email;
     }
 } else {
     console.log("No user data stored in localStorage.");
     window.location.href = "index.html";
 }
+
+
+
+
+
+
+
+
+
+//next page
+document.getElementById("done").addEventListener("click", function() {
+    // Add click animation class to the button
+    this.classList.add("click-animation");
+  //generate task map using gemini api
+// push reponse to firebase rtdb as json
+var currentDate = new Date(); // Create a new Date object to get the current date and time
+var timestamp = currentDate.getTime(); // Get the current timestamp in milliseconds
+var jsonData = {
+    timestamp: timestamp,
+    desination: desination,
+    wraptask: 'takepick,drawonscreen,doascreenrecord,buyfood,pickuporder,snapwithastranger'
+    // Add more key-value pairs as needed
+  };
+  var path = email.replace("@gmail.com", "");
+var ref = firebase.database().ref('path');
+ref.push(jsonData, function(error) {
+  if (error) {
+    console.error("Data could not be saved." + error);
+  } else {
+    console.log("New wrap created");
+      // go to this url when push is successful 
+  window.location.href = "tasks.html";
+  }
+});
+});
