@@ -65,58 +65,10 @@ if (storedData) {
 document.getElementById("username").innerText = username;
 
 // Update profile picture
-const imgx = document.getElementById("pfp");
-imgx.src = photoURL;
+const img = document.getElementById("pfp");
+img.src = photoURL;
 
-//make funkie art 
-// Create an image object
-const img = new Image();
-img.src = document.getElementById('pfp').src;
-
-// When the image is loaded
-img.onload = function() {
-    // Create a canvas element
-    const canvas = document.createElement('canvas');
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    // Get 2D context
-    const ctx = canvas.getContext('2d');
-
-    // Draw the image onto the canvas
-    ctx.drawImage(img, 0, 0);
-
-    // Get the image data
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const data = imageData.data;
-
-    // Count occurrences of each color
-    const colorCounts = {};
-    for (let i = 0; i < data.length; i += 4) {
-        const color = `rgb(${data[i]}, ${data[i + 1]}, ${data[i + 2]})`;
-        colorCounts[color] = (colorCounts[color] || 0) + 1;
-    }
-
-    // Find the most used color
-    let mostUsedColor;
-    let maxCount = 0;
-    for (const color in colorCounts) {
-        if (colorCounts[color] > maxCount) {
-            maxCount = colorCounts[color];
-            mostUsedColor = color;
-        }
-    }
-
-    // Output the most used color
-    console.log('Most used color:', mostUsedColor);
-
-    // Get the .block1 element
-    const block1 = document.querySelector('.block1');
-
-    // Set the background color of .block1 to the most used color
-    block1.style.backgroundColor = mostUsedColor;
-};
-
+//make funkie art
 
 
 console.log("Username:", username);
