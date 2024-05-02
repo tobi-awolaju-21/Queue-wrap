@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <div id="p5-container"></div>
 
     <div class="block"></div>
 
@@ -95,24 +94,7 @@ localStorage.setItem('currentUser', JSON.stringify(userData));
         }
     </script>
 
-    <!-- Include p5.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-
-    <!-- Script to draw a circle using p5.js -->
-    <script>
-        function setup() {
-            // Create a canvas that spans the entire webpage
-            let canvas = createCanvas(windowWidth, windowHeight);
-            canvas.parent('p5-container'); // Set parent element for the canvas
-            canvas.position(0, 0); // Position canvas at the top-left corner
-            canvas.style('z-index', '-1'); // Set canvas behind other elements
-        }
-
-        function draw() {
-            // Your drawing code goes here
-        }
-    </script>
-
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="index.js"></script>
 </body>
