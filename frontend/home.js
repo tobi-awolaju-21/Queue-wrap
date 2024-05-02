@@ -39,7 +39,6 @@ if (storedData) {
 
     if (elapsedTime > 60) {
         console.log("Stored user object is more than 60 seconds old.");
-        window.close();
         window.location.href = "index.html";
     } else {
         // User object is still valid, use it
@@ -47,6 +46,5 @@ if (storedData) {
     }
 } else {
     console.log("No user data stored in localStorage.");
-    window.close();
     window.location.href = "index.html";
 }
