@@ -1,53 +1,73 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scope=1.0">
-  <title>Send Dummy JSON to Firebase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Test</title>
 </head>
 <body>
-  <button id="sendButton">Send Dummy JSON to Firebase</button>
+  <button onclick="run()">Run</button>
+  <div id="result"></div>
 
-   <!-- Include Firebase SDK via CDN -->
-   <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database-compat.js"></script>
+  <script>
+    function run() {
+  const API_KEY = "YOUR_API_KEY";
+  const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=" + API_KEY;
+  const data = {
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "<img data-sample-image-id=\"animal1\" class=\"input-image\" src=\"blob:https://aistudio.google.com/a680e2db-d682-40be-90fe-a935e578c0b2\"> that did you see in this image?"
+          }
+        ]
+      }
+    ],
+    "generationConfig": {
+      "temperature": 1,
+      "topK": 0,
+      "topP": 0.95,
+      "maxOutputTokens": 8192,
+      "stopSequences": []
+    },
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+      }
+    ]
+  };
 
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
 
-   <!-- Firebase configuration and other Firebase-related code -->
-   <script>
-       // Firebase configuration
-       const firebaseConfig = {
- apiKey: "AIzaSyALxLdpqTkaYDrDILveqL4y_CTpSpnseiw",
- authDomain: "queuewrap.firebaseapp.com",
- projectId: "queuewrap",
- storageBucket: "queuewrap.appspot.com",
- messagingSenderId: "181118240793",
- appId: "1:181118240793:web:190390eeffe69e34178288",
- measurementId: "G-QH07EEN0HY"
-};
-       // Initialize Firebase
-       firebase.initializeApp(firebaseConfig);
-       
-       
+  </script>
 
-      </script>
-
-
-<script>
-    document.getElementById('sendButton').addEventListener('click', function() {
-        console.log("done");
-      var database = firebase.database();
-      var ref = database.ref('tobi/today'); // Replace 'your-data-node' with the desired node name
-      ref.push({
-        key: 'value' // Replace 'key' and 'value' with your data
-      });
-    });
-    
-</script>
-  
 </body>
 </html>
