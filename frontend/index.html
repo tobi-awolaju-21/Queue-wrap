@@ -67,9 +67,11 @@
                     // The signed-in user info.
                     const user = result.user;
                       
-        // Save the user object to localStorage
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        
+       // Save the user object and current time to localStorage
+const currentTime = new Date().getTime(); // Get current time in milliseconds
+const userData = { user: user, timestamp: currentTime };
+localStorage.setItem('currentUser', JSON.stringify(userData));
+
                     console.log(user);
 
 
