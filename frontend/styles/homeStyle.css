@@ -27,8 +27,8 @@ body{
     .sideblock{
       position: sticky;
       top:calc(25vh - 25vw);
-      width: 35vw;
-      height:35vw;
+      width: 50vw;
+      height:50vw;
       background-color: #ff5500;
     }
 
