@@ -97,7 +97,7 @@ var jsonData = {
     // Add more key-value pairs as needed
   };
   var path = email.replace("@gmail.com", "");
-var ref = firebase.database().ref('path');
+var ref = firebase.database().ref(path);
 ref.push(jsonData, function(error) {
   if (error) {
     console.error("Data could not be saved." + error);
