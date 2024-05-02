@@ -66,6 +66,10 @@
                     const token = credential.accessToken;
                     // The signed-in user info.
                     const user = result.user;
+                      
+        // Save the user object to localStorage
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        
                     console.log(user);
 
 

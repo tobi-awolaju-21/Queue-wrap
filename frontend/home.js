@@ -11,4 +11,14 @@
 
 
 
-    
+    // Retrieve the user object from localStorage
+const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+// Check if currentUser exists
+if (currentUser) {
+    // Use currentUser as needed
+    console.log(currentUser);
+} else {
+    // User not logged in
+    console.log('No user logged in');
+}
