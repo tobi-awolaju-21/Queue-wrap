@@ -23,7 +23,7 @@ body{
     }
 
 
-    #sideblock{
+    .sideblock{
       position: sticky;
       top:calc(25vh - 25vw);
       width: 60vw;
