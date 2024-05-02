@@ -1,12 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Queue Wrap</title>
     <link rel="stylesheet" href="./indexStyle.css" type="text/css">
 </head>
-
 
 <body>
     <div id="p5-container"></div>
@@ -15,84 +16,99 @@
 
     <div class="block">
         <div class="container">
-            <div class="square1">
-         
-            </div>
-            <div class="square2">
-     
-            </div>
-            <div class="square3">
-       
-            </div>
+            <div class="square1"></div>
+            <div class="square2"></div>
+            <div class="square3"></div>
         </div>
     </div>
 
     <div class="block">
-        <h2> Making you happy before the show starts </h2>
-      
+        <h2>Making you happy before the show starts</h2>
 
         <div class="buttonparent">
-            <hr class="dashed-divider"></hr>   
-<button class="button1" id="getStartedButton">Get started</button>
+            <hr class="dashed-divider"></hr>
+
+            <button class="button1"onclick="signInWithGoogle()">Sign in with Google</button>
+
+
         </div>
-        
     </div>
 
+    <!-- Include Firebase SDK via CDN -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
+
+    <!-- Firebase configuration and other Firebase-related code -->
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+  apiKey: "AIzaSyAT8gtefncWcYY8SHGNsPLnVCW15bB3chk",
+  authDomain: "queuewrap-c81c0.firebaseapp.com",
+  projectId: "queuewrap-c81c0",
+  storageBucket: "queuewrap-c81c0.appspot.com",
+  messagingSenderId: "181118240793",
+  appId: "1:181118240793:web:190390eeffe69e34178288",
+  measurementId: "G-QH07EEN0HY"
+};
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Initialize Google provider
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        // Function to sign in with Google
+        function signInWithGoogle() {
+            firebase.auth()
+                .signInWithPopup(provider)
+                .then((result) => {
+                    // This gives you a Google Access Token.
+                    const credential = result.credential;
+                    const token = credential.accessToken;
+                    // The signed-in user info.
+                    const user = result.user;
+                    console.log(user);
 
 
-<!-- Include p5.js library -->
+
+                    window.location.href = "home.html";
+
+
+
+
+
+                }).catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // The email of the user's account used.
+                    const email = error.email;
+                    // The firebase.auth.AuthCredential type that was used.
+                    const credential = error.credential;
+                    console.error(errorMessage);
+                });
+        }
+    </script>
+
+    <!-- Include p5.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 
     <!-- Script to draw a circle using p5.js -->
     <script>
-    let x = 0;
-let y = 0;
-let trail = [];
+        function setup() {
+            // Create a canvas that spans the entire webpage
+            let canvas = createCanvas(windowWidth, windowHeight);
+            canvas.parent('p5-container'); // Set parent element for the canvas
+            canvas.position(0, 0); // Position canvas at the top-left corner
+            canvas.style('z-index', '-1'); // Set canvas behind other elements
+        }
 
-
-          function setup() {
-        // Create a canvas that spans the entire webpage
-        let canvas = createCanvas(windowWidth, windowHeight);
-        canvas.parent('p5-container'); // Set parent element for the canvas
-        canvas.position(0, 0); // Position canvas at the top-left corner
-        canvas.style('z-index', '-1'); // Set canvas behind other elements
-    }
-
-    function draw() {
-  background(255,0); // Set background color to white
-  
-  // Update worm's position
-  x += random(-10, 10);
-  y += random(-10, 10);
-  
-  // Constrain the worm's position to stay within the canvas
-  x = constrain(x, 0, width);
-  y = constrain(y, 0, height);
-  
-  // Add current position to trail
-  trail.push(createVector(x, y));
-  
-  // Draw the worm's trail
-  for (let i = 0; i < trail.length; i++) {
-    let alpha = map(i, 0, trail.length, 255, 0); // Fading effect
-    fill(0, 0, 255, alpha); // Set fill color with fading effect
-    noStroke(); // Disable stroke
-    ellipse(trail[i].x, trail[i].y, 100, 100); // Draw trail ellipse
-  }
-  
-  // Limit the length of the trail
-  if (trail.length > 100) {
-    trail.splice(0, 1); // Remove the oldest position
-  }
-  
-  // Draw the worm's head
-  fill(0, 0, 255); // Set fill color for the head
-  noStroke(); // Disable stroke
-  ellipse(x, y, 20, 20); // Draw the head
-}
+        function draw() {
+            // Your drawing code goes here
+        }
     </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>

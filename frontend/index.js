@@ -9,16 +9,7 @@ $(document).ready(function(){
   
 
 
-  //next page
-  document.getElementById("getStartedButton").addEventListener("click", function() {
-    // Add click animation class to the button
-    this.classList.add("click-animation");
-
-    // Redirect to home.html after the animation ends
-    setTimeout(() => {
-        window.location.href = "home.html";
-    }, 300); // 0.3 seconds for the animation duration
-});
+  
 
     // Get the container element
     const container = document.querySelector('.container');

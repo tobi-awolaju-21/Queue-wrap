@@ -1,0 +1,67 @@
+        let worms = []; // Array to store worms
+        
+        function setup() {
+          // Create a canvas that spans the entire webpage
+          let canvas = createCanvas(windowWidth, windowHeight);
+          canvas.parent('p5-container'); // Set parent element for the canvas
+          canvas.position(0, 0); // Position canvas at the top-left corner
+          canvas.style('z-index', '-1'); // Set canvas behind other elements
+          
+          // Add worms to the array
+
+          worms.push(new Worm(300, 600, color(0, 0, 0), 25));
+        }
+        
+        function draw() {
+          background(255,0); // Set background color to white
+          
+          // Update and draw each worm
+          for (let i = 0; i < worms.length; i++) {
+            worms[i].update();
+            worms[i].display();
+          }
+        }
+        
+        // Worm class definition
+        class Worm {
+          constructor(startX, startY, wormColor, headSize) {
+            this.x = startX;
+            this.y = startY;
+            this.color = wormColor;
+            this.headSize = headSize;
+            this.trail = [];
+          }
+          
+          update() {
+            // Update worm's position
+            this.x += random(-10, 10);
+            this.y += random(-10, 10);
+            
+            // Constrain the worm's position to stay within the canvas
+            this.x = constrain(this.x, 0, width);
+            this.y = constrain(this.y, 0, height);
+            
+            // Add current position to trail
+            this.trail.push(createVector(this.x, this.y));
+            
+            // Limit the length of the trail
+            if (this.trail.length > 100) {
+              this.trail.splice(0, 1); // Remove the oldest position
+            }
+          }
+          
+          display() {
+            // Draw the worm's trail
+            for (let i = 0; i < this.trail.length; i++) {
+              let alpha = map(i, 0, this.trail.length, 255, 0); // Fading effect
+              fill(red(this.color), green(this.color), blue(this.color), alpha); // Set fill color with fading effect
+              noStroke(); // Disable stroke
+              ellipse(this.trail[i].x, this.trail[i].y, this.headSize,this.headSize); // Draw trail ellipse
+            }
+            
+            // Draw the worm's head
+            fill(this.color); // Set fill color for the head
+            noStroke(); // Disable stroke
+            ellipse(this.x, this.y, this.headSize, this.headSize); // Draw the head
+          }
+        }
