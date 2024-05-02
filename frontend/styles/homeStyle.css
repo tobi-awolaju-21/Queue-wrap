@@ -22,6 +22,15 @@ body{
     }
 
 
+    #sideblock{
+      position: sticky;
+      top:calc(25vh - 25vw);
+      width: 30vw;
+      height:40vw;
+      margin:20px;
+      background-color: #ff5500;
+    }
+
 
     
    
@@ -137,3 +146,9 @@ body{
       width: 35vw;
 
     }
+
+
+
+
+
+   
