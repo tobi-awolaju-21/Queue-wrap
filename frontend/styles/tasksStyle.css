@@ -87,8 +87,14 @@ body{
         color:#6c6c6c;
         margin-bottom: 50px;
       }
+
+      .px{
+        
+        color:#6c6c6c;
+      }
+      
       h3{
-        color: #7f34a0;
+        color: #575757;
       }
     
       .dashed-divider {
