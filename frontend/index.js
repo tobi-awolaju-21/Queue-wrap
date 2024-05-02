@@ -32,7 +32,7 @@ if (storedData) {
     const elapsedTime = (currentTime - storedTimestamp) / 1000; // Calculate elapsed time in seconds
 
     if (elapsedTime > 10) {
-        console.log("Stored user object is more than 60 seconds old.");
+        console.log("Stored user object is more than 10 seconds old.");
       
     } else {
         // User object is still valid, use it

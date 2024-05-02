@@ -37,8 +37,8 @@ if (storedData) {
     const currentTime = new Date().getTime(); // Get current time in milliseconds
     const elapsedTime = (currentTime - storedTimestamp) / 1000; // Calculate elapsed time in seconds
 
-    if (elapsedTime > 60) {
-        console.log("Stored user object is more than 60 seconds old.");
+    if (elapsedTime > 86400) {
+        console.log("Stored user object is more than 24hrs  old.");
         window.location.href = "index.html";
     } else {
         // User object is still valid, use it
