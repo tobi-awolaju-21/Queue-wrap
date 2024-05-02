@@ -137,6 +137,8 @@ function updateButtonColor() {
 
   // Set the contrasting color as the text color of the button
   shareButton.style.color = contrastingColor;
+
+  console.log("working");
 }
 
 // Call updateButtonColor initially
