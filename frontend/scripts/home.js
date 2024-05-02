@@ -65,8 +65,8 @@ if (storedData) {
 document.getElementById("username").innerText = username;
 
 // Update profile picture
-const img = document.getElementById("pfp");
-img.src = photoURL;
+const imgx = document.getElementById("pfp");
+imgx.src = photoURL;
 
 //make funkie art 
 // Create an image object
