@@ -100,3 +100,48 @@ document.getElementById('share').addEventListener('click', function() {
 document.getElementById('close').addEventListener('click', function() {
   history.back();
 });
+
+//color changing
+// Function to get the background color at a specific point
+function getBackgroundColor(x, y) {
+  var canvas = document.createElement('canvas');
+  var context = canvas.getContext('2d');
+  context.drawImage(document.documentElement, 0, 0, window.innerWidth, window.innerHeight);
+  var pixel = context.getImageData(x, y, 1, 1).data;
+  return 'rgb(' + pixel[0] + ',' + pixel[1] + ',' + pixel[2] + ')';
+}
+
+// Function to calculate contrasting color
+function getContrastColor(hexcolor) {
+  var r = parseInt(hexcolor.substr(1, 2), 16);
+  var g = parseInt(hexcolor.substr(3, 2), 16);
+  var b = parseInt(hexcolor.substr(5, 2), 16);
+  var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+  return (yiq >= 128) ? '#000000' : '#ffffff';
+}
+
+// Update button color function
+function updateButtonColor() {
+  // Get the button element
+  var shareButton = document.getElementById('share');
+
+  // Get the coordinates of the button
+  var buttonRect = shareButton.getBoundingClientRect();
+  var buttonX = buttonRect.left + buttonRect.width / 2;
+  var buttonY = buttonRect.top + buttonRect.height / 2;
+
+  // Get the background color at the button's position
+  var backgroundColor = getBackgroundColor(buttonX, buttonY);
+
+  // Calculate the contrasting color
+  var contrastingColor = getContrastColor(backgroundColor);
+
+  // Set the contrasting color as the text color of the button
+  shareButton.style.color = contrastingColor;
+}
+
+// Call updateButtonColor initially
+updateButtonColor();
+
+// Run updateButtonColor every 0.5 seconds (adjust the interval as needed)
+setInterval(updateButtonColor, 500);
