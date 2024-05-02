@@ -172,6 +172,20 @@ body{
   }
   
 
+  .b4{
+    border-radius: 100px; /* Adjust the value to change the roundness */
+  background-color: #ffd61f;
+  margin-left: 8px;
+  color:#000000;
+  outline: none;
+  border: 1px solid #ffd61f;
+  width: 100px;
+  height: 100px;
+  font-size:xxx-large;
+  box-shadow: 14px 16px rgb(35, 0, 35); /* Add shadow */
+  }
+
+
   .b6{
     border-radius: 100px; /* Adjust the value to change the roundness */
   background-color: #e6acff;
