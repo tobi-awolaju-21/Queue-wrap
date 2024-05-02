@@ -19,7 +19,7 @@
         "role": "user",
         "parts": [
           {
-            "text": "<img data-sample-image-id=\"animal1\" class=\"input-image\" src=\"blob:https://aistudio.google.com/a680e2db-d682-40be-90fe-a935e578c0b2\"> that did you see in this image?"
+            "text": "<img data-sample-image-id=\"animal1\" class=\"input-image\" src=\"blob:https://aistudio.google.com/a680e2db-d682-40be-90fe-a935e578c0b2\">caption this, you are running a social media account for pets? "
           }
         ]
       }
@@ -28,7 +28,7 @@
       "temperature": 1,
       "topK": 0,
       "topP": 0.95,
-      "maxOutputTokens": 8192,
+      "maxOutputTokens": 200,
       "stopSequences": []
     },
     "safetySettings": [
@@ -61,6 +61,8 @@
   .then(response => response.json())
   .then(data => {
     document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+    var specificResponse = data.candidates[0].content.parts[0].text;
+    document.getElementById('result').innerText = specificResponse;
   })
   .catch(error => {
     console.error('Error:', error);
