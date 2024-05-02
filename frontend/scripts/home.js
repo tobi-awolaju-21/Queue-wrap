@@ -103,7 +103,16 @@ document.getElementById("newwrapButton").addEventListener("click", function() {
 
 //create new wrap root in firebase rtdb
 // Initialize Firebase
-
+var firebaseConfig = {
+    apiKey: "AIzaSyALxLdpqTkaYDrDILveqL4y_CTpSpnseiw",
+    authDomain: "queuewrap.firebaseapp.com",
+    projectId: "queuewrap",
+    storageBucket: "queuewrap.appspot.com",
+    messagingSenderId: "181118240793",
+    appId: "1:181118240793:web:190390eeffe69e34178288",
+    measurementId: "G-QH07EEN0HY"
+  };
+  firebase.initializeApp(firebaseConfig);
   
   // Reference to your Firebase Realtime Database
   var database = firebase.database();
