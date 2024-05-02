@@ -74,3 +74,30 @@ if (storedData) {
     console.log("No user data stored in localStorage.");
     window.location.href = "index.html";
 }
+
+
+
+
+//closeclicked
+document.getElementById('close').addEventListener('click', function() {
+  history.back();
+});
+
+
+//share buton
+document.getElementById('share').addEventListener('click', function() {
+  // Check if the Web Share API is supported
+  if (navigator.share) {
+      // Call the share method with the string you want to share
+      navigator.share({
+          title: 'Share Example',
+          text: 'mywraps',
+      })
+      .then(() => console.log('Share successful'))
+      .catch((error) => console.log('Error sharing:', error));
+  } else {
+      // Fallback for browsers that do not support the Web Share API
+      console.log('Web Share API not supported');
+      // You can implement your custom sharing functionality here for unsupported browsers
+  }
+});
