@@ -78,12 +78,6 @@ if (storedData) {
 
 
 
-//closeclicked
-document.getElementById('close').addEventListener('click', function() {
-  history.back();
-});
-
-
 //share buton
 document.getElementById('share').addEventListener('click', function() {
   // Check if the Web Share API is supported
@@ -100,4 +94,9 @@ document.getElementById('share').addEventListener('click', function() {
       console.log('Web Share API not supported');
       // You can implement your custom sharing functionality here for unsupported browsers
   }
+});
+
+//closeclicked
+document.getElementById('close').addEventListener('click', function() {
+  history.back();
 });
