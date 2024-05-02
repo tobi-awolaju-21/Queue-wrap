@@ -59,7 +59,16 @@ if (storedData) {
         const username = userData.displayName;
         const email = userData.email;
         const photoURL = userData.photoURL;
+         
         
+// Update username
+document.getElementById("username").innerText = username;
+
+// Update profile picture
+const img = document.getElementById("pfp");
+img.src = photoURL;
+
+
 console.log("Username:", username);
 console.log("Email:", email);
 console.log("photoURL:", photoURL);
