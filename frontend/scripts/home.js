@@ -41,10 +41,49 @@ if (storedData) {
         console.log("Stored user object is more than 24hrs  old.");
         window.location.href = "index.html";
     } else {
+
+
+
+
+
+
+
+
+
+
+        const userData = storedUser;
         // User object is still valid, use it
         console.log(storedUser);
+
+
+        const username = userData.displayName;
+        const email = userData.email;
+        const photoURL = userData.photoURL;
+        
+console.log("Username:", username);
+console.log("Email:", email);
+console.log("photoURL:", photoURL);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 } else {
     console.log("No user data stored in localStorage.");
     window.location.href = "index.html";
 }
+
+
+
