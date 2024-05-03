@@ -14,15 +14,19 @@ body{
     
    
       .block2 {
+        text-align: center;  
+        width: 100vw;
         height: 33vh;
         max-height: 50vh;
-        width: 100vw;
-        overflow-x: visible;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
       }
 
-      #options{
+      .options{
         max-height: 33vh;
-        width: auto;
+        width:100vh;
       }
 
       .block3 {
