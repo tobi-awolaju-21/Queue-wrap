@@ -1,7 +1,7 @@
 body{
     padding: 0px;
     margin: 0px;
-    background-color: #8700a8;
+    background-color: #ffffff;
     }
     
     
@@ -30,10 +30,10 @@ body{
       top:calc(25vh - 25vw);
       width: 50vw;
       height:50vw;
-      background-color: #ff5500;
+      background-color: #ff00c8;
       font-size: 50px;
       font-weight: bold;
-      color: #000000;
+      color: #ffffff;
     }
 
 
