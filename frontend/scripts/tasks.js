@@ -85,29 +85,44 @@ if (storedData) {
   
 
   
-const video = document.getElementById('video');
-const canvas = document.getElementById('canvas');
-const context = canvas.getContext('2d');
+const fileInput = document.getElementById('fileInput');
 
-// Check if getUserMedia is supported
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-  // Open the camera when the button is clicked
-  captureButton.addEventListener('click', function() {
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then(function(stream) {
-        video.srcObject = stream;
-      })
-      .catch(function(error) {
-        console.log("Something went wrong: ", error);
-      });
-  });
+// Add event listener to the capture button
+captureButton.addEventListener('click', function() {
+    // Trigger click event on the file input
+    fileInput.click();
+});
 
-  // Capture a photo when the video is clicked
-  video.addEventListener('click', function() {
-    context.drawImage(video, 0, 0, 400, 300);
-    // Convert canvas image to data URL
-    const imageDataURL = canvas.toDataURL('image/jpeg');
-    // Upload the image to Firebase Storage
-    uploadImage(imageDataURL);
-  });
+// Add event listener to the file input change event
+fileInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        // File selected, you can upload it to Firebase Storage
+        uploadImage(file);
+    }
+});
+
+function uploadImage(file) {
+    // Your Firebase Storage upload code here
+    // For example:
+    const storageRef = firebase.storage().ref();
+    const filename = 'image_' + Date.now() + '.jpg';
+    const uploadTask = storageRef.child(filename).put(file);
+
+    // Listen for state changes, errors, and completion of the upload.
+    uploadTask.on('state_changed',
+        function(snapshot) {
+            // Track upload progress
+        },
+        function(error) {
+            console.error('Upload failed:', error);
+        },
+        function() {
+            // Upload successful, get the download URL
+            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                console.log('File available at', downloadURL);
+                // Optionally display the download URL or perform further actions
+            });
+        }
+    );
 }
