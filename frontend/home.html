@@ -99,7 +99,7 @@ reversedKeys.forEach((key) => {
 
         // Convert timestamp to a Moment object and get the time ago
         const timeAgo = moment(entry.timestamp).fromNow();
-        itemDiv.innerHTML = `Feeling ${entry.feeling},<div style="font-size:10px; padding:4px; color:#000; background-color:#d8d8d8; border-radius:100px width:40px; height:40px;">${timeAgo}</div>`;
+        itemDiv.innerHTML = `Feeling ${entry.feeling},<div style="font-size:10px; padding:4px; color:#000; background-color:#d8d8d8; border-radius:10px; width:40px; height:40px;">${timeAgo}</div>`;
         containerDiv.appendChild(itemDiv);
     });
 
