@@ -168,8 +168,11 @@ document.getElementById("done").addEventListener("click", function() {
   // Create data object
   var jsonData = {
       timestamp: timestamp,
-      feeling: feeling
-      // Add more key-value pairs as needed
+      feeling: feeling,
+      img1:'http://blank.png',
+      img2:'http://blank.png',
+      img3:'http://blank.png',
+      img4:'http://blank.png'
   };
 
   // Replace email domain to form path
