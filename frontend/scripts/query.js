@@ -87,7 +87,7 @@ var currentDate = new Date(); // Create a new Date object to get the current dat
 var timestamp = currentDate.getTime(); // Get the current timestamp in milliseconds
 var jsonData = {
     timestamp: timestamp,
-    feeling: desination
+    feeling: feeling
     // Add more key-value pairs as needed
   };
   var path = email.replace("@gmail.com", "");
