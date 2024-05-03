@@ -104,6 +104,7 @@ const latestFeelings = latestKeys.map(key => {
   const timestamp = jsonData[key].timestamp;
   const timeAgo = moment(timestamp).fromNow(); // Using moment.js to format timestamp
   return `${feeling} ${timeAgo}`;
+  console.log(feeling);
 });
 
 // Get the div elements with class "item"
