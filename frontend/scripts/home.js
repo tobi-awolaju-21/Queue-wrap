@@ -78,11 +78,10 @@ block1.style.backgroundColor = getRandomColor();
 
 
 
-
 // Function to retrieve data from a specific directory
 function getDataFromDirectory(directory) {
   return new Promise((resolve, reject) => {
-    database.ref(directory).once('value', (snapshot) => {
+    firebase.database().ref(directory).once('value', (snapshot) => {
       const data = snapshot.val();
       resolve(data);
     }, (error) => {
