@@ -101,10 +101,11 @@ const latestKeys = keys.slice(0, 8);
 // Get the corresponding feelings for the latest 8 keys and format the timestamp
 const latestFeelings = latestKeys.map(key => {
   const feeling = jsonData[key].feeling;
+  console.log(feeling);
   const timestamp = jsonData[key].timestamp;
   const timeAgo = moment(timestamp).fromNow(); // Using moment.js to format timestamp
   return `${feeling} ${timeAgo}`;
-  console.log(feeling);
+
 });
 
 // Get the div elements with class "item"
