@@ -87,6 +87,8 @@ getDataFromDirectory(directory)
     const jsonData = JSON.stringify(data);
 
 
+
+
 // Get the keys (IDs) of the JSON data
 const keys = Object.keys(jsonData);
 
@@ -111,6 +113,7 @@ const items = document.querySelectorAll('.item');
 latestFeelings.forEach((feeling, index) => {
   items[index].textContent = feeling;
 });
+
 
 
 
