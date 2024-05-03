@@ -91,8 +91,12 @@ for (const key in Jdata) {
     if (data.hasOwnProperty(key)) {
         const entry = Jdata[key];
         const itemDiv = document.createElement('div');
-        itemDiv.classList.add('item');
-        itemDiv.textContent = `Feeling: ${entry.feeling}, Timestamp: ${entry.timestamp}`;
+        itemDiv.classList.add('item'); 
+
+        
+        // Convert timestamp to a Moment object and get the time ago
+        const timeAgo = moment(entry.timestamp).fromNow();
+        itemDiv.textContent = `Feeling: ${entry.feeling}, ${timeAgo}`;
         containerDiv.appendChild(itemDiv);
     }
 }
