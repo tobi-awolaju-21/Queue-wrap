@@ -1,5 +1,5 @@
 // Array of words
-var words = ["airport","hospital", "concert", "theme park","movie theater", "popular restaurant", "train station","festival", "tourist attraction", "museum", "sports stadium", "shopping"];
+var words = ["amazing","busy","bored", "cute", "down","done", "elegant", "free","good", "gay", "hot", "invincible","in love","jelous","kind","lucky","loved","lonly","magical","naughty","new","over rated","punky","quee","restless","tired","techy","underated","violated","voluptuous","windy","well", "yellow"];
 
 // Get the div with id "options"
 var optionsDiv = document.getElementById("options");
