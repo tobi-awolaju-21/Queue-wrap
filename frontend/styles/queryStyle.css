@@ -17,6 +17,12 @@ body{
         height: 33vh;
         max-height: 50vh;
         width: 100vw;
+        overflow-x: visible;
+      }
+
+      #options{
+        max-height: 33vh;
+        width: auto;
       }
 
       .block3 {
