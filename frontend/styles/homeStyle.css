@@ -143,7 +143,13 @@ body{
     .item:nth-child(1),
     .item:nth-child(4),
     .item:nth-child(5),
-    .item:nth-child(8) {
+    .item:nth-child(8),
+    .item:nth-child(9),
+    .item:nth-child(12),
+    .item:nth-child(14),
+    .item:nth-child(16),
+    .item:nth-child(18),
+    .item:nth-child(20) {
       grid-row-end: span 2;
     }
   
@@ -152,7 +158,13 @@ body{
     .item:nth-child(3),
     .item:nth-child(6),
     .item:nth-child(7),
-    .item:nth-child(9) {
+    .item:nth-child(10),
+    .item:nth-child(11),
+    .item:nth-child(13),
+    .item:nth-child(15),
+    .item:nth-child(17),
+    .item:nth-child(19)
+     {
       height: 35vw;
       width:  35vw;
     }
@@ -160,7 +172,14 @@ body{
     .item:nth-child(1),
     .item:nth-child(4),
     .item:nth-child(5),
-    .item:nth-child(8) {
+    .item:nth-child(8),
+    .item:nth-child(9),
+    .item:nth-child(12),
+    .item:nth-child(14),
+    .item:nth-child(16),
+    .item:nth-child(18),
+    .item:nth-child(20)
+     {
       height: 70vw;
       width: 35vw;
 

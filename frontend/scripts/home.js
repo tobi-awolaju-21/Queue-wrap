@@ -75,3 +75,4 @@ block1.style.backgroundColor = getRandomColor();
 
 
 
+//style genration 
