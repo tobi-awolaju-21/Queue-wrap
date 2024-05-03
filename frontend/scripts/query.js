@@ -175,6 +175,10 @@ document.getElementById("done").addEventListener("click", function() {
       img4:'http://blank.png'
   };
 
+ // Save jsonData to local storage
+localStorage.setItem('currentWrap', JSON.stringify(jsonData));
+
+
   // Replace email domain to form path
   var path = email.replace("@gmail.com", "");
 
