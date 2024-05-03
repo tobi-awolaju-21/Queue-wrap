@@ -29,14 +29,7 @@
     <div class="block2"> 
 <div class="container">
     <h1 id="username">......</h1>
-    <div class="item">1</div>
-    <div class="item">2</div>
-    <div class="item">3</div>
-    <div class="item">4</div>
-    <div class="item">5</div>
-    <div class="item">6</div>
-    <div class="item">7</div>
-    <div class="item">8</div>
+  
     <div class="item" style="background-color: rgba(0, 255, 255, 0);"></div>
   </div>
 
@@ -87,9 +80,22 @@ getDataFromDirectory(directory)
 
     const jsonData = JSON.stringify(data);
 
-    const jsonDiv = document.getElementById('json');
-    jsonDiv.textContent = jsonData;
-//ccat
+ // Parse JSON data
+const Jdata = JSON.parse(jsonData);
+
+// Get the container div
+const containerDiv = document.querySelector('.container');
+
+// Loop through the data and create div elements for each entry
+for (const key in Jdata) {
+    if (data.hasOwnProperty(key)) {
+        const entry = Jdata[key];
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('item');
+        itemDiv.textContent = `Feeling: ${entry.feeling}, Timestamp: ${entry.timestamp}`;
+        containerDiv.appendChild(itemDiv);
+    }
+}
 
 
 })
