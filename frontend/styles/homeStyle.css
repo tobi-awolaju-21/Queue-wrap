@@ -41,10 +41,10 @@ body{
       padding: 10px;
       position: sticky;
       top:calc(25vh - 25vw);
-      width: 25vw;
-      height:25vw;
+      width: 15vw;
+      height:15vw;
       background-color: #3e3e3e;
-      font-size: 25px;
+      font-size: 15px;
       font-weight: bold;
       color: #ffffff;
     }
