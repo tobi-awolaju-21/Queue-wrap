@@ -96,13 +96,18 @@ keys.sort((a, b) => jsonData[b].timestamp - jsonData[a].timestamp);
 // Get the latest 8 keys
 const latestKeys = keys.slice(0, 8);
 
-// Get the corresponding feelings for the latest 8 keys
-const latestFeelings = latestKeys.map(key => jsonData[key].feeling);
+// Get the corresponding feelings for the latest 8 keys and format the timestamp
+const latestFeelings = latestKeys.map(key => {
+  const feeling = jsonData[key].feeling;
+  const timestamp = jsonData[key].timestamp;
+  const timeAgo = moment(timestamp).fromNow(); // Using moment.js to format timestamp
+  return `${feeling} ${timeAgo}`;
+});
 
 // Get the div elements with class "item"
 const items = document.querySelectorAll('.item');
 
-// Replace the text content of each div element with the corresponding feeling
+// Replace the text content of each div element with the corresponding feeling and timestamp
 latestFeelings.forEach((feeling, index) => {
   items[index].textContent = feeling;
 });
