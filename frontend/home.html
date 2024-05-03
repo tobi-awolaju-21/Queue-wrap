@@ -83,23 +83,27 @@ getDataFromDirectory(directory)
  // Parse JSON data
 const Jdata = JSON.parse(jsonData);
 
+
+// Convert object keys to array and reverse it
+const reversedKeys = Object.keys(Jdata).reverse();
+
+
 // Get the container div
 const containerDiv = document.querySelector('.container');
 
-// Loop through the data and create div elements for each entry
-for (const key in Jdata) {
-    if (data.hasOwnProperty(key)) {
+// Loop through the reversed array of keys and create div elements for each entry
+reversedKeys.forEach((key) => {
         const entry = Jdata[key];
         const itemDiv = document.createElement('div');
         itemDiv.classList.add('item'); 
 
-        
+
         // Convert timestamp to a Moment object and get the time ago
         const timeAgo = moment(entry.timestamp).fromNow();
         itemDiv.textContent = `Feeling: ${entry.feeling}, ${timeAgo}`;
         containerDiv.appendChild(itemDiv);
-    }
-}
+    });
+
 
 
 })
