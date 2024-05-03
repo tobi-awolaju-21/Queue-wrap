@@ -78,8 +78,6 @@ block1.style.backgroundColor = getRandomColor();
 
 
 
-// Reference to the database
-const database = firebase.database();
 
 // Function to retrieve data from a specific directory
 function getDataFromDirectory(directory) {
