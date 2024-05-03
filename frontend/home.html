@@ -99,7 +99,7 @@ keys.sort((a, b) => jsonData[b].timestamp - jsonData[a].timestamp);
 const latestKeys = keys.slice(0, 8);
 
 // Verify jsonData
-console.log("this;"jsonData);
+console.log("this;" + jsonData);
 
 // Get the corresponding feelings for the latest 8 keys and format the timestamp
 const latestFeelings = latestKeys.map(key => {
