@@ -73,3 +73,32 @@ function getRandomColor() {
 // Set a random background color to the element
 block1.style.backgroundColor = getRandomColor();
 
+
+
+
+
+
+// Reference to the database
+const database = firebase.database();
+
+// Function to retrieve data from a specific directory
+function getDataFromDirectory(directory) {
+  return new Promise((resolve, reject) => {
+    database.ref(directory).once('value', (snapshot) => {
+      const data = snapshot.val();
+      resolve(data);
+    }, (error) => {
+      reject(error);
+    });
+  });
+}
+
+// Example usage
+const directory = '/tobiawolaju21';
+getDataFromDirectory(directory)
+  .then((data) => {
+    console.log('Data retrieved:', data);
+  })
+  .catch((error) => {
+    console.error('Error retrieving data:', error);
+  });
