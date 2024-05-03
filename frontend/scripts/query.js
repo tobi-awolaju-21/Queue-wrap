@@ -152,26 +152,40 @@ if (storedData) {
 
 //next page
 document.getElementById("done").addEventListener("click", function() {
-    // Add click animation class to the button
-    this.classList.add("click-animation");
-  //generate task map using gemini api
-// push reponse to firebase rtdb as json
-var currentDate = new Date(); // Create a new Date object to get the current date and time
-var timestamp = currentDate.getTime(); // Get the current timestamp in milliseconds
-var jsonData = {
-    timestamp: timestamp,
-    feeling: feeling
-    // Add more key-value pairs as needed
+  // Add click animation class to the button
+  this.classList.add("click-animation");
+
+  // Generate task map using Gemini API
+  // Assuming 'feeling' variable is defined somewhere in your code
+
+  // Get current timestamp
+  var currentDate = new Date();
+  var timestamp = currentDate.getTime();
+
+  // Create key using feeling and timestamp
+  var key = feeling + "_" + timestamp;
+
+  // Create data object
+  var jsonData = {
+      timestamp: timestamp,
+      feeling: feeling
+      // Add more key-value pairs as needed
   };
+
+  // Replace email domain to form path
   var path = email.replace("@gmail.com", "");
-var ref = firebase.database().ref(path);
-ref.push(jsonData, function(error) {
-  if (error) {
-    console.error("Data could not be saved." + error);
-  } else {
-    console.log("New wrap created");
-      // go to this url when push is successful 
-  window.location.href = "tasks.html";
-  }
-});
+
+  // Get reference to Firebase database
+  var ref = firebase.database().ref(path);
+
+  // Push data to Firebase with custom key
+  ref.child(key).set(jsonData, function(error) {
+      if (error) {
+          console.error("Data could not be saved." + error);
+      } else {
+          console.log("New wrap created");
+          // Redirect to tasks.html when push is successful 
+          window.location.href = "tasks.html";
+      }
+  });
 });

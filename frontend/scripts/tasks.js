@@ -70,21 +70,8 @@ if (storedData) {
     //window.location.href = "index.html";
 }
 
-
-
-
-
-
-
-
-
   // Get a reference to the storage service
   var storage = firebase.storage();
-
-
-
-
-  
 
 // Define arrays for capture buttons and image elements
 const captureButtons = [
