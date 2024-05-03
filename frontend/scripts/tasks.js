@@ -69,3 +69,45 @@ if (storedData) {
     console.log("No user data stored in localStorage.");
     //window.location.href = "index.html";
 }
+
+
+
+
+
+
+
+
+
+  // Get a reference to the storage service
+  var storage = firebase.storage();
+  
+  const captureButton = document.getElementById('2');
+  
+
+  
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext('2d');
+
+// Check if getUserMedia is supported
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  // Open the camera when the button is clicked
+  captureButton.addEventListener('click', function() {
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(function(stream) {
+        video.srcObject = stream;
+      })
+      .catch(function(error) {
+        console.log("Something went wrong: ", error);
+      });
+  });
+
+  // Capture a photo when the video is clicked
+  video.addEventListener('click', function() {
+    context.drawImage(video, 0, 0, 400, 300);
+    // Convert canvas image to data URL
+    const imageDataURL = canvas.toDataURL('image/jpeg');
+    // Upload the image to Firebase Storage
+    uploadImage(imageDataURL);
+  });
+}
