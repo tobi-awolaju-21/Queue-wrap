@@ -67,5 +67,5 @@ if (storedData) {
     }
 } else {
     console.log("No user data stored in localStorage.");
-    window.location.href = "index.html";
+    //window.location.href = "index.html";
 }
