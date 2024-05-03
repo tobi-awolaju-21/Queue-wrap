@@ -85,6 +85,7 @@ const directory = '/tobiawolaju21';
 getDataFromDirectory(directory)
   .then((data) => {
     console.log('Data retrieved:', data);
+    alert('Data retrieved: ' + JSON.stringify(data));
   })
   .catch((error) => {
     console.error('Error retrieving data:', error);
