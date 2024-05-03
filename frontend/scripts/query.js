@@ -7,7 +7,7 @@ var optionsDiv = document.getElementById("options");
 // Variable to store the currently selected button
 var selectedButton = null;
 
-var desination;
+var feeling;
 var email;
 
 // Loop through the words array
@@ -34,7 +34,7 @@ words.forEach(function(word, index) {
         selectedButton = this;
         // Log the word when clicked
         console.log(this.textContent);
-        desination = this.textContent;
+        feeling = this.textContent;
     });
     // Append the button element to the options div
     optionsDiv.appendChild(buttonElement);
@@ -87,8 +87,7 @@ var currentDate = new Date(); // Create a new Date object to get the current dat
 var timestamp = currentDate.getTime(); // Get the current timestamp in milliseconds
 var jsonData = {
     timestamp: timestamp,
-    desination: desination,
-    wraptask: 'takepick,drawonscreen,doascreenrecord,buyfood,pickuporder,snapwithastranger'
+    feeling: desination
     // Add more key-value pairs as needed
   };
   var path = email.replace("@gmail.com", "");
