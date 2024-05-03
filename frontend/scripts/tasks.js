@@ -80,17 +80,36 @@ if (storedData) {
 
   // Get a reference to the storage service
   var storage = firebase.storage();
-  
-  const captureButton = document.getElementById('2');
-  
+
+
+
 
   
-const fileInput = document.getElementById('fileInput');
 
-// Add event listener to the capture button
-captureButton.addEventListener('click', function() {
-    // Trigger click event on the file input
-    fileInput.click();
+// Define arrays for capture buttons and image elements
+const captureButtons = [
+    document.getElementById('1'),
+    document.getElementById('2'),
+    document.getElementById('3'),
+    document.getElementById('4')
+];
+
+const imageElements = [
+    document.getElementById('1img'),
+    document.getElementById('2img'),
+    document.getElementById('3img'),
+    document.getElementById('4img')
+];
+
+// Add event listeners to each capture button
+captureButtons.forEach((button, index) => {
+    button.addEventListener('click', function() {
+        // Trigger click event on the file input
+        fileInput.click();
+        
+        // Set the current image element to update
+        currentImageElement = imageElements[index];
+    });
 });
 
 // Add event listener to the file input change event
@@ -102,6 +121,7 @@ fileInput.addEventListener('change', function(event) {
     }
 });
 
+// Function to upload image to Firebase Storage and update the current image element
 function uploadImage(file) {
     // Your Firebase Storage upload code here
     // For example:
@@ -121,7 +141,9 @@ function uploadImage(file) {
             // Upload successful, get the download URL
             uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
                 console.log('File available at', downloadURL);
-                // Optionally display the download URL or perform further actions
+              
+                // Update the source of the current image element
+                currentImageElement.src = downloadURL;
             });
         }
     );
