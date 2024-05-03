@@ -135,3 +135,47 @@ function uploadImage(file) {
         }
     );
 }
+
+
+
+
+
+
+
+
+
+
+
+// Retrieve the user object from localStorage
+const storedWrap = localStorage.getItem('currentWrap');
+
+if (storedWrap) {
+    // Parse the JSON string back to an object
+    const parsedData = JSON.parse(storedWrap);
+
+    // Extract image URLs from the parsed object
+    const img1i = parsedData.img1;
+    const img2i = parsedData.img2;
+    const img3i = parsedData.img3;
+    const img4i = parsedData.img4;
+
+    // Get image elements by their IDs
+    const imageElements = [
+        document.getElementById('1img'),
+        document.getElementById('2img'),
+        document.getElementById('3img'),
+        document.getElementById('4img')
+    ];
+
+    // Assign image sources to the corresponding image elements
+    imageElements[0].src = img1i;
+    imageElements[1].src = img2i;
+    imageElements[2].src = img3i;
+    imageElements[3].src = img4i;
+
+} else {
+    // Handle case when 'currentWrap' is not found in localStorage
+    // You can add appropriate behavior here, such as displaying a message or taking some default action
+}
+
+
