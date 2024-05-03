@@ -92,16 +92,10 @@ getDataFromDirectory(directory)
 // Get the keys (IDs) of the JSON data
 const keys = Object.keys(jsonData);
 
-// Sort the keys based on the timestamp in descending order
-keys.sort((a, b) => jsonData[b].timestamp - jsonData[a].timestamp);
+// Get the last 8 keys
+const latestKeys = keys.slice(-8);
 
-// Get the latest 8 keys
-const latestKeys = keys.slice(0, 8);
-
-// Verify jsonData
-console.log("this;" + jsonData);
-
-// Get the corresponding feelings for the latest 8 keys and format the timestamp
+// Get the corresponding feelings for the last 8 keys and format the timestamp
 const latestFeelings = latestKeys.map(key => {
   const feeling = jsonData[key].feeling;
   console.log(feeling);
@@ -117,6 +111,7 @@ const items = document.querySelectorAll('.item');
 latestFeelings.forEach((feeling, index) => {
   items[index].textContent = feeling;
 });
+
 
 
 })
