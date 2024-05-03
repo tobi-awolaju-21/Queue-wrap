@@ -37,12 +37,13 @@ body{
 
 
     .sideblock{
+      padding: 10px;
       position: sticky;
       top:calc(25vh - 25vw);
       width: 50vw;
       height:50vw;
-      background-color: #ff00c8;
-      font-size: 25px;
+      background-color: #4f0a40;
+      font-size: 50px;
       font-weight: bold;
       color: #ffffff;
     }
