@@ -24,6 +24,7 @@
 
 
 
+<div id="json"></div>
 
     <div class="block2"> 
 <div class="container">
@@ -85,31 +86,9 @@ getDataFromDirectory(directory)
   .then((data) => {
 
     const jsonData = JSON.stringify(data);
-
-
-
-
-// Get the keys (IDs) of the JSON data
-const keys = Object.keys(jsonData);
-
-// Get the last 8 keys
-const latestKeys = keys.slice(-8);
-
-// Get the corresponding feelings for the last 8 keys and format the timestamp
-const latestFeelings = latestKeys.map(key => {
-  const feeling = jsonData[key].feeling;
-  const timestamp = jsonData[key].timestamp;
-  const timeAgo = moment(timestamp).fromNow(); // Using moment.js to format timestamp
-  return `${feeling} ${timeAgo}`;
-});
-
-// Get the div elements with class "item"
-const items = document.querySelectorAll('.item');
-
-// Replace the text content of each div element with the corresponding feeling and timestamp
-latestFeelings.forEach((feeling, index) => {
-  items[index].textContent = feeling;
-});
+    
+    const jsonDiv = document.getElementById('json');
+    jsonDiv.textContent = jsonData;
 
 
 
