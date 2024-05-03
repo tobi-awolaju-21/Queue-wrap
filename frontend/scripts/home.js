@@ -72,7 +72,3 @@ function getRandomColor() {
 
 // Set a random background color to the element
 block1.style.backgroundColor = getRandomColor();
-
-
-
-//style genration 
