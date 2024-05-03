@@ -98,7 +98,6 @@ const latestKeys = keys.slice(-8);
 // Get the corresponding feelings for the last 8 keys and format the timestamp
 const latestFeelings = latestKeys.map(key => {
   const feeling = jsonData[key].feeling;
-  console.log(feeling);
   const timestamp = jsonData[key].timestamp;
   const timeAgo = moment(timestamp).fromNow(); // Using moment.js to format timestamp
   return `${feeling} ${timeAgo}`;
