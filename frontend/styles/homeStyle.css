@@ -40,9 +40,9 @@ body{
       padding: 10px;
       position: sticky;
       top:calc(25vh - 25vw);
-      width: 50vw;
-      height:50vw;
-      background-color: #4f0a40;
+      width: 25vw;
+      height:25vw;
+      background-color: #3e3e3e;
       font-size: 25px;
       font-weight: bold;
       color: #ffffff;
