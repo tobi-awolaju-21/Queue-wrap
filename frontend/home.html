@@ -80,13 +80,36 @@ function getDataFromDirectory(directory) {
   });
 }
 
-// Example usage
 const directory = '/tobiawolaju21';
 getDataFromDirectory(directory)
   .then((data) => {
-    console.log('Data retrieved:', data);
-    alert('Data retrieved: ' + JSON.stringify(data));
-  })
+
+    const jsonData = JSON.stringify(data);
+
+
+// Get the keys (IDs) of the JSON data
+const keys = Object.keys(jsonData);
+
+// Sort the keys based on the timestamp in descending order
+keys.sort((a, b) => jsonData[b].timestamp - jsonData[a].timestamp);
+
+// Get the latest 8 keys
+const latestKeys = keys.slice(0, 8);
+
+// Get the corresponding feelings for the latest 8 keys
+const latestFeelings = latestKeys.map(key => jsonData[key].feeling);
+
+// Get the div elements with class "item"
+const items = document.querySelectorAll('.item');
+
+// Replace the text content of each div element with the corresponding feeling
+latestFeelings.forEach((feeling, index) => {
+  items[index].textContent = feeling;
+});
+
+
+
+})
   .catch((error) => {
     console.error('Error retrieving data:', error);
   });
