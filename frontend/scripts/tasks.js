@@ -1,6 +1,6 @@
 var email;
 var indexN;
-var url1,url2,url3,url4;
+var url1,url2,url3,url4 = "https://blank.png";
 
 
 // Get all buttons
