@@ -208,8 +208,6 @@ function uploadImage(file) {
     url3 = dataish[key]["img3"];
     url4 = dataish[key]["img4"];
 
-
-    console.log("this is it kiss it:"+ img3);
     
 
     const storageRef = firebase.storage().ref();
