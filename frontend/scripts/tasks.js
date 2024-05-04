@@ -200,8 +200,8 @@ function uploadImage(file) {
                         // Parse JSON data
                         const LatestjsonData2 = JSON.parse(LatestjsonData);
 
-    const data = JSON.parse(LatestjsonData);
-    const img3 = data[key]["img3"];
+    const dataish = JSON.parse(LatestjsonData);
+    const img3 = dataish[key]["img3"];
     console.log("this is it kiss it:"+ img3);
     
 
