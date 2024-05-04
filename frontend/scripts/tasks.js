@@ -18,8 +18,6 @@ storedWrap = localStorage.getItem('currentWrap');
 const parsedData0 = JSON.parse(storedWrap);
 console.log(parsedData0);
 
-
-
 sendDataToBackend(parsedData0);
 
 });
@@ -32,7 +30,7 @@ async function sendDataToBackend(parsedData0) {
         
       const response = await fetch('https://queue-wrap.onrender.com:10000/processData', {
         method: 'POST',
-        headers: {
+        headers:  {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(this.parsedData0)
