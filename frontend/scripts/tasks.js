@@ -50,9 +50,6 @@ async function sendDataToBackend(parsedData0) {
   }
 
 
-
-
-
 //next page
 document.getElementById("play1").addEventListener("click", function () {
     // Add click animation class to the button
