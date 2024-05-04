@@ -4,16 +4,30 @@ buttons.forEach(button => {
     const randomX = Math.floor(Math.random() * 91) - 49; // Random value between -25 and 25
     button.style.transform = `translateX(${randomX}px)`;
 });
+
+
+
+
+
 //next page
 document.getElementById("play0").addEventListener("click", function () {
     // Add click animation class to the button
     this.classList.add("click-animation");
+// Retrieve the user object from localStorage
+storedWrap = localStorage.getItem('currentWrap');
+const parsedData0 = JSON.parse(storedData);
+console.log(parsedData0);
 
     // Redirect to home.html after the animation ends
     setTimeout(() => {
-        window.location.href = "wrap.html";
+    //    window.location.href = "wrap.html";
     }, 300); // 0.3 seconds for the animation duration
 });
+
+
+
+
+
 //next page
 document.getElementById("play1").addEventListener("click", function () {
     // Add click animation class to the button
@@ -24,6 +38,9 @@ document.getElementById("play1").addEventListener("click", function () {
         window.location.href = "wrap.html";
     }, 300); // 0.3 seconds for the animation duration
 });
+
+
+
 //next page
 document.getElementById("play2").addEventListener("click", function () {
     // Add click animation class to the button
@@ -34,6 +51,43 @@ document.getElementById("play2").addEventListener("click", function () {
         window.location.href = "wrap.html";
     }, 300); // 0.3 seconds for the animation duration
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var storedTimestamp;
 var email;
 var indexN;
