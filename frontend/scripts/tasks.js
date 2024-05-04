@@ -18,11 +18,36 @@ storedWrap = localStorage.getItem('currentWrap');
 const parsedData0 = JSON.parse(storedWrap);
 console.log(parsedData0);
 
-    // Redirect to home.html after the animation ends
-    setTimeout(() => {
-    //    window.location.href = "wrap.html";
-    }, 300); // 0.3 seconds for the animation duration
+
+
+sendDataToBackend(parsedData0);
+
 });
+
+
+
+async function sendDataToBackend(parsedData0) {
+    // JSON data to send to the backend
+    try {
+        
+      const response = await fetch('http://localhost:3000/processData', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.parsedData0)
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const processedString = await response.text();
+      console.log('Processed string from backend:', processedString);
+    } catch (error) {
+      console.error('Error sending data to backend:', error);
+    }
+  }
 
 
 

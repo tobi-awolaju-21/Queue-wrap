@@ -46,8 +46,6 @@ if (storedData) {
 
 
 
-
-
 //random color
 // Select the element with the class .block1
 const body = document.querySelector('body');
