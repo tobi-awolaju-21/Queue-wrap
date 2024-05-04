@@ -58,7 +58,8 @@ app.post('/processData', async (req, res) => { // Use async function
 
   try {
     const response = await axios.post(url, requestData);
-    res.json(response.data);
+    const text = response.data.candidates[0].content.parts[0].text.trim();
+    res.json({ text });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).send('Internal Server Error');
