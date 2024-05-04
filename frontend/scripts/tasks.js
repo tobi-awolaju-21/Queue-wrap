@@ -1,10 +1,10 @@
 var email;
 var indexN;
 var path;
-var url1;
-var url2
-var url3;
-var url4;
+var url1 ="http://blank.png";
+var url2 ="http://blank.png";
+var url3 ="http://blank.png";
+var url4 ="http://blank.png";
 
 // Get all buttons
 const buttons = document.querySelectorAll('.b2');
@@ -233,6 +233,7 @@ function uploadImage(file) {
                 // Replace email domain to form path
                 path = email.replace("@gmail.com", "");
                 path = path.replaceAll(".", "");
+                console.log(path);
 
 
                 // Get reference to Firebase database
