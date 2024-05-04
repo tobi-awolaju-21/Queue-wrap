@@ -1,6 +1,7 @@
 var email;
 var indexN;
 var url1,url2,url3,url4;
+var currentImageElement;
 
 
 // Get all buttons
@@ -181,7 +182,7 @@ function uploadImage(file) {
                 url2 = "http://blank.png:";
                 url3 = "http://blank.png:";
                 url4 = "http://blank.png:";
-                
+
 
                 switch (indexN) {
                     case 0:
