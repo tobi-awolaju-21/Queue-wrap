@@ -5,6 +5,9 @@ var url1 ="http://blank.png";
 var url2 ="http://blank.png";
 var url3 ="http://blank.png";
 var url4 ="http://blank.png";
+var jsonDataLoaded;
+var Feeling;
+var Timestamp;
 
 // Get all buttons
 const buttons = document.querySelectorAll('.b2');
@@ -85,6 +88,9 @@ if (storedData) {
 
 // Retrieve the user object from Firebase
 const storedWrap = localStorage.getItem('currentWrap');
+const parsedData2 = JSON.parse(storedData);
+ Feeling = parsedData2.feeling;
+ Timestamp = parsedData2.timestamp;
 
 // Function to retrieve data from a specific directory
 function getDataFromDirectory(directory) {
@@ -98,14 +104,17 @@ function getDataFromDirectory(directory) {
     });
   }
   
-  const directory = '/tobiawolaju21';
+
+  path = email.replace("@gmail.com", "");
+  path = path.replaceAll(".", "");
+  console.log(path);
+
+  var key = Feeling + "_" + Timestamp;
+const directory = path+"/"+key;
   getDataFromDirectory(directory)
     .then((data) => {
   
-      const jsonData = JSON.stringify(data);
-  
-   // Parse JSON data
-  const Jdata = JSON.parse(jsonData);
+       jsonDataLoaded = JSON.stringify(data);
 
     }
     );
@@ -114,11 +123,8 @@ function getDataFromDirectory(directory) {
 
 
 
-
-
-if (storedWrap) {
     // Parse the JSON string back to an object
-    const parsedData = JSON.parse(storedWrap);
+    const parsedData = JSON.parse(jsonDataLoaded);
 
     // Extract image URLs from the parsed object
     const img1i = parsedData.img1;
@@ -140,10 +146,9 @@ if (storedWrap) {
     imageElements[2].src = img3i;
     imageElements[3].src = img4i;
 
-} else {
-    // Handle case when 'currentWrap' is not found in localStorage
-    // You can add appropriate behavior here, such as displaying a message or taking some default action
-}
+
+
+
 
 
 
