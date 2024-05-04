@@ -15,6 +15,7 @@ app.post('/processData', async (req, res) => { // Use async function
   const img1 = data.img1;
   const img2 = data.img2;
   const img3 = data.img3;
+  var imageLabel = "Animal";
 
   const API_KEY = "AIzaSyBWaNaPOdgFWUyO7A-NiKq0fvop8t1JlPw"; // Insert your API key here
   const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=" + API_KEY;
@@ -24,7 +25,7 @@ app.post('/processData', async (req, res) => { // Use async function
         "role": "user",
         "parts": [
           {
-            "text": "<img data-sample-image-id=\"people\" class=\"input-image\" src=\"blob:https://aistudio.google.com/a680e2db-d682-40be-90fe-a935e578c0b2\">caption this, you are running a social media account for pets? "
+            "text": `<img data-sample-image-id="${imageLabel}" class="input-image" src="${img2}">generate a mini story that can caption the image but use the theme:${feeling}`
           }
         ]
       }
