@@ -202,7 +202,7 @@ function uploadImage(file) {
 
     console.log("fresh Json from the oven my fans kjlhsaig:" + LatestjsonData )
     //now use  lasteJsondata2 and point out tragets
-     console.log("masssssssssssssssssssssssssssssssssssive:"+LatestjsonData2.key.feeling);
+     console.log("masssssssssssssssssssssssssssssssssssive:"+LatestjsonData2.key);
                         
 
     const storageRef = firebase.storage().ref();
