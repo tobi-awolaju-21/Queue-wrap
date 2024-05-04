@@ -167,12 +167,7 @@ const captureButtons = [
     document.getElementById('4')
 ];
 
-const imageElements = [
-    document.getElementById('1img'),
-    document.getElementById('2img'),
-    document.getElementById('3img'),
-    document.getElementById('4img')
-];
+
 
 // Add event listeners to each capture button
 captureButtons.forEach((button, index) => {
