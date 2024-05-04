@@ -23,7 +23,7 @@ app.post('/processData', (req, res) => {
   // For this example, let's just create a string with the timestamp and feeling
   const processedString = `Received data at timestamp ${timestamp}, feeling ${feeling}`;
   // Send the processed string back as response
-  res.send(processedString);
+  res.send(data);
 });
 
 // Endpoint to handle GET requests for testing
@@ -35,3 +35,4 @@ app.get('/test', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+``
