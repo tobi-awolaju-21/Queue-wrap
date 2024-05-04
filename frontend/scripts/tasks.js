@@ -108,6 +108,7 @@ function getDataFromDirectory(directory) {
   const Jdata = JSON.parse(jsonData);
 
     }
+    );
 
 
 

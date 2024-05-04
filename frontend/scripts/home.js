@@ -32,7 +32,78 @@ if (storedData) {
     // User object is still valid, use it
     console.log(storedUser);
     const username = userData.displayName;
-    const email = userData.email;
+    var email = userData.email;
+
+
+
+    
+
+       
+       // Function to retrieve data from a specific directory
+function getDataFromDirectory(directory) {
+  return new Promise((resolve, reject) => {
+    firebase.database().ref(directory).once('value', (snapshot) => {
+      const data = snapshot.val();
+      resolve(data);
+    }, (error) => {
+      reject(error);
+    });
+  });
+}
+
+    path = email.replace("@gmail.com", "");
+    path = path.replaceAll(".", "");
+    console.log(path);
+const directory = path;
+getDataFromDirectory(directory)
+  .then((data) => {
+const jsonData = JSON.stringify(data);
+ // Parse JSON data
+const Jdata = JSON.parse(jsonData);
+// Convert object keys to array and reverse it
+const reversedKeys = Object.keys(Jdata).reverse();
+// Get the container div
+const containerDiv = document.querySelector('.container');
+// Loop through the reversed array of keys and create div elements for each entry
+reversedKeys.forEach((key) => {
+        const entry = Jdata[key];
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('item'); 
+        itemDiv.style.color = '#000';
+        itemDiv.style.fontSize = '15px';
+        // Convert timestamp to a Moment object and get the time ago
+        const timeAgo = moment(entry.timestamp).fromNow();
+        itemDiv.innerHTML = `Feeling ${entry.feeling},<div style="font-size:10px; padding:4px; color:#000; background-color:#d8d8d8; border-radius:10px; width:40px; height:40px;">${timeAgo}</div>`;
+        containerDiv.appendChild(itemDiv);
+    });
+})
+  .catch((error) => {
+    console.error('Error retrieving data:', error);
+  });
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     const photoURL = userData.photoURL;
     // Update username
     document.getElementById("username").innerText = username;
