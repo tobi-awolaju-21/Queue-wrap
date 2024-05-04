@@ -6,21 +6,16 @@ var url2
 var url3;
 var url4;
 
-
 // Get all buttons
- const buttons = document.querySelectorAll('.b2');
+const buttons = document.querySelectorAll('.b2');
 
- // Random x translation
- buttons.forEach(button => {
-     const randomX = Math.floor(Math.random() * 91) - 49; // Random value between -25 and 25
-     button.style.transform = `translateX(${randomX}px)`;
- });
-
-
- 
-
- //next page
-document.getElementById("play0").addEventListener("click", function() {
+// Random x translation
+buttons.forEach(button => {
+    const randomX = Math.floor(Math.random() * 91) - 49; // Random value between -25 and 25
+    button.style.transform = `translateX(${randomX}px)`;
+});
+//next page
+document.getElementById("play0").addEventListener("click", function () {
     // Add click animation class to the button
     this.classList.add("click-animation");
 
@@ -33,7 +28,7 @@ document.getElementById("play0").addEventListener("click", function() {
 
 
 //next page
-document.getElementById("play1").addEventListener("click", function() {
+document.getElementById("play1").addEventListener("click", function () {
     // Add click animation class to the button
     this.classList.add("click-animation");
 
@@ -44,7 +39,7 @@ document.getElementById("play1").addEventListener("click", function() {
 });
 
 //next page
-document.getElementById("play2").addEventListener("click", function() {
+document.getElementById("play2").addEventListener("click", function () {
     // Add click animation class to the button
     this.classList.add("click-animation");
 
@@ -75,7 +70,7 @@ if (storedData) {
         console.log(storedUser);
 
         const userData = storedUser;
-     email = userData.email;
+        email = userData.email;
 
     }
 } else {
@@ -126,8 +121,8 @@ if (storedWrap) {
 
 
 
-  // Get a reference to the storage service
-  var storage = firebase.storage();
+// Get a reference to the storage service
+var storage = firebase.storage();
 
 // Define arrays for capture buttons and image elements
 const captureButtons = [
@@ -146,10 +141,10 @@ const imageElements = [
 
 // Add event listeners to each capture button
 captureButtons.forEach((button, index) => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
         // Trigger click event on the file input
         fileInput.click();
-        
+
         // Set the current image element to update
         currentImageElement = imageElements[index];
         indexN = index;
@@ -158,7 +153,7 @@ captureButtons.forEach((button, index) => {
 });
 
 // Add event listener to the file input change event
-fileInput.addEventListener('change', function(event) {
+fileInput.addEventListener('change', function (event) {
     const file = event.target.files[0];
     if (file) {
         // File selected, you can upload it to Firebase Storage
@@ -176,20 +171,20 @@ function uploadImage(file) {
 
     // Listen for state changes, errors, and completion of the upload.
     uploadTask.on('state_changed',
-        function(snapshot) {
+        function (snapshot) {
             // Track upload progress
         },
-        function(error) {
+        function (error) {
             console.error('Upload failed:', error);
         },
-        function() {
+        function () {
             // Upload successful, get the download URL
-            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+            uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                 console.log('File available at', downloadURL);
-              
+
                 // Update the source of the current image element
                 currentImageElement.src = downloadURL;
-             
+
 
 
                 if (indexN == 0) {
@@ -208,32 +203,13 @@ function uploadImage(file) {
                     url4 = downloadURL;
                 }
 
-                
 
+                // Parse the JSON string back to an object
+                var parsedData2 = JSON.parse(storedWrap);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-                    // Parse the JSON string back to an object
-                    var parsedData2 = JSON.parse(storedWrap);
-                
-                    // Extract image URLs from the parsed object
-                    var timestamp = parsedData2.timestamp;
-                    var feeling = parsedData2.feeling;
+                // Extract image URLs from the parsed object
+                var timestamp = parsedData2.timestamp;
+                var feeling = parsedData2.feeling;
 
                 //update the value in firebase
 
@@ -251,56 +227,37 @@ function uploadImage(file) {
 
                 //push to the same path again to overlap
 
-  // Create key using feeling and timestamp
-  var key = feeling + "_" + timestamp;
+                // Create key using feeling and timestamp
+                var key = feeling + "_" + timestamp;
 
-                  // Replace email domain to form path
-   path = email.replace("@gmail.com", "");
-   path = path.replace(".", "");
-
-  // Get reference to Firebase database
-  var ref = firebase.database().ref(path);
-
-  // Push data to Firebase with custom key
-  ref.child(key).set(jsonData2, function(error) {
-      if (error) {
-          console.error("Data could not be saved." + error);
-      } else {
-          console.log("New wrap created");
-          // Redirect to tasks.html when push is successful 
-          window.location.href = "tasks.html";
-      }
-    });
-    
-                //update the value in localstorage
-
-// Save jsonData to local storage
-localStorage.setItem('currentWrap', JSON.stringify(jsonData2));
+                // Replace email domain to form path
+                path = email.replace("@gmail.com", "");
+                path = path.replaceAll("\\.", "");
 
 
+                // Get reference to Firebase database
+                var ref = firebase.database().ref(path);
+
+                // Push data to Firebase with custom key
+                ref.child(key).set(jsonData2, function (error) {
+                    if (error) {
+                        console.error("Data could not be saved." + error);
+                    } else {
+                        console.log("New wrap created");
+                        // Redirect to tasks.html when push is successful 
+                        window.location.href = "tasks.html";
+                    }
+                });
 
 
+                // Update jsonData to local storage
+                localStorage.setItem('currentWrap', JSON.stringify(jsonData2));
 
+                  //if url1 and url2 are filled
+                  //send current data to backend
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                  //if url1, 2,3,4 are filled 
+                  //send all img to backend
 
             });
         }
