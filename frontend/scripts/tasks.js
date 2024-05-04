@@ -83,8 +83,37 @@ if (storedData) {
 
 
 
-// Retrieve the user object from localStorage
+// Retrieve the user object from Firebase
 const storedWrap = localStorage.getItem('currentWrap');
+
+// Function to retrieve data from a specific directory
+function getDataFromDirectory(directory) {
+    return new Promise((resolve, reject) => {
+      firebase.database().ref(directory).once('value', (snapshot) => {
+        const data = snapshot.val();
+        resolve(data);
+      }, (error) => {
+        reject(error);
+      });
+    });
+  }
+  
+  const directory = '/tobiawolaju21';
+  getDataFromDirectory(directory)
+    .then((data) => {
+  
+      const jsonData = JSON.stringify(data);
+  
+   // Parse JSON data
+  const Jdata = JSON.parse(jsonData);
+
+    }
+
+
+
+
+
+
 
 if (storedWrap) {
     // Parse the JSON string back to an object

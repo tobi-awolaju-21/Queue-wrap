@@ -72,7 +72,27 @@ function getDataFromDirectory(directory) {
   });
 }
 
-const directory = '/tobiawolaju21';
+
+
+
+
+
+
+
+
+
+// Retrieve the user object from localStorage
+const storedUser2 = localStorage.getItem('currentUser');
+
+    const userData = storedUser2;
+    const email = userData.email;
+    path = email.replace("@gmail.com", "");
+                path = path.replaceAll(".", "");
+                console.log(path);
+
+
+
+const directory = path;
 getDataFromDirectory(directory)
   .then((data) => {
 
