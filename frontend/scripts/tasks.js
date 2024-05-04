@@ -228,7 +228,7 @@ function uploadImage(file) {
                         // Parse JSON data
                         const LatestjsonData2 = JSON.parse(LatestjsonData);
 
-                        console.log("fresh Json from the oven my fans kjlhsaig:" + LatestjsonData2)
+                        console.log("fresh Json from the oven my fans kjlhsaig:" + LatestjsonData )
 
                     })
                     .catch((error) => {
