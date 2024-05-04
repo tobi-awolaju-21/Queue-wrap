@@ -30,7 +30,7 @@ async function sendDataToBackend(parsedData0) {
     // JSON data to send to the backend
     try {
         
-      const response = await fetch('https://queue-wrap.onrender.com/', {
+      const response = await fetch('https://queue-wrap.onrender.com:10000/processData', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
