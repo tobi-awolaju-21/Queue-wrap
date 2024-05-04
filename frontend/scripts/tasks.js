@@ -77,10 +77,6 @@ if (storedData) {
     console.log("No user data stored in localStorage.");
     //window.location.href = "index.html";
 }
-
-
-
-
 // Retrieve the user object from localStorage
 storedWrap = localStorage.getItem('currentWrap');
 if (storedWrap) {
@@ -106,12 +102,6 @@ if (storedWrap) {
 } else {
     // Handle case when 'currentWrap' is not found in localStorage
 }
-
-
-
-
-
-
 // Get a reference to the storage service
 var storage = firebase.storage();
 
@@ -145,170 +135,131 @@ fileInput.addEventListener('change', function (event) {
     }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Function to upload image to Firebase Storage and update the current image element
 function uploadImage(file) {
 
-                // Parse the JSON string back to an object  load from firebase instead of local storage
-                var parsedData2 = JSON.parse(storedWrap);
-                // Extract image URLs from the parsed object
-                timestamp = parsedData2.timestamp;
-                feeling = parsedData2.feeling;
-                // Replace email domain to form path
-                path = email.replace("@gmail.com", "");
-                path = path.replaceAll(".", "");
-                // Create key using feeling and timestamp
-                var key = feeling + "_" + timestamp;
-                //load json from firebase and console log
-                function getDataFromDirectory(directory) {
-                    return new Promise((resolve, reject) => {
-                        firebase.database().ref(directory).once('value', (snapshot) => {
-                            const data = snapshot.val();
-                            resolve(data);
-                        }, (error) => {
-                            reject(error);
-                        });
-                    });
-                }
-                getDataFromDirectory(path)
-                    .then((data) => {
-                        const LatestjsonData = JSON.stringify(data);
-                        // Parse JSON data
-                        const LatestjsonData2 = JSON.parse(LatestjsonData);
-
-    const dataish = JSON.parse(LatestjsonData);
-
-    
-    url1 = dataish[key]["img1"];
-    url2 = dataish[key]["img2"];
-    url3 = dataish[key]["img3"];
-    url4 = dataish[key]["img4"];
-
-    
-
-    const storageRef = firebase.storage().ref();
-    const filename = 'image_' + Date.now() + '.jpg';
-    const uploadTask = storageRef.child(filename).put(file);
-    // Listen for state changes, errors, and completion of the upload.
-    uploadTask.on('state_changed',
-        function (snapshot) {
-            // Track upload progress
-        },
-        function (error) {
-            console.error('Upload failed:', error);
-        },
-        function () {
-            // Upload successful, get the download URL
-            uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-                console.log('File available at', downloadURL);
-
-                // Update the source of the current image element
-                imageElements[indexN].src = downloadURL;
-
-                if (indexN == 0) {
-                    url1 = downloadURL;
-                }
-                if (indexN == 1) {
-                    url2 = downloadURL;
-                }
-                if (indexN == 2) {
-                    url3 = downloadURL;
-                }
-                if (indexN == 3) {
-                    url4 = downloadURL;
-                }
-
-
-
-                //update the value in firebase
-                var jsonData2 = {
-                    timestamp: timestamp,
-                    feeling: feeling,
-                    img1: url1,
-                    img2: url2,
-                    img3: url3,
-                    img4: url4
-                };
-
-
-                //push to the same path again to overlap
-
-
-
-                // Get reference to Firebase database
-                var ref = firebase.database().ref(path);
-                // Push data to Firebase with custom key
-                console.log("path:" + path);
-                console.log("key:" + key);
-                console.log("json:" + jsonData2);
-
-                ref.child(key).set(jsonData2, function (error) {
-                    if (error) {
-                        console.error("Data could not be saved." + error);
-                    } else {
-                        console.log("New wrap created");
-                        // update local storage
-                        localStorage.setItem('currentWrap', JSON.stringify(jsonData2));
-                        //refresah page
-                        // Redirect to tasks.html when push is successful 
-                        //   window.location.href = "tasks.html";
-
-
-                    }
-                });
-
-
-
-
+    // Parse the JSON string back to an object  load from firebase instead of local storage
+    var parsedData2 = JSON.parse(storedWrap);
+    // Extract image URLs from the parsed object
+    timestamp = parsedData2.timestamp;
+    feeling = parsedData2.feeling;
+    // Replace email domain to form path
+    path = email.replace("@gmail.com", "");
+    path = path.replaceAll(".", "");
+    // Create key using feeling and timestamp
+    var key = feeling + "_" + timestamp;
+    //load json from firebase and console log
+    function getDataFromDirectory(directory) {
+        return new Promise((resolve, reject) => {
+            firebase.database().ref(directory).once('value', (snapshot) => {
+                const data = snapshot.val();
+                resolve(data);
+            }, (error) => {
+                reject(error);
             });
-        }
-    );
+        });
+    }
+    getDataFromDirectory(path)
+        .then((data) => {
+            const LatestjsonData = JSON.stringify(data);
+            // Parse JSON data
+            const LatestjsonData2 = JSON.parse(LatestjsonData);
+            const dataish = JSON.parse(LatestjsonData);
+            url1 = dataish[key]["img1"];
+            url2 = dataish[key]["img2"];
+            url3 = dataish[key]["img3"];
+            url4 = dataish[key]["img4"];
+            const storageRef = firebase.storage().ref();
+            const filename = 'image_' + Date.now() + '.jpg';
+            const uploadTask = storageRef.child(filename).put(file);
+            // Listen for state changes, errors, and completion of the upload.
+            uploadTask.on('state_changed',
+                function (snapshot) {
+                    // Track upload progress
+                },
+                function (error) {
+                    console.error('Upload failed:', error);
+                },
+                function () {
+                    // Upload successful, get the download URL
+                    uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+                        console.log('File available at', downloadURL);
+
+                        // Update the source of the current image element
+                        imageElements[indexN].src = downloadURL;
+
+                        if (indexN == 0) {
+                            url1 = downloadURL;
+                        }
+                        if (indexN == 1) {
+                            url2 = downloadURL;
+                        }
+                        if (indexN == 2) {
+                            url3 = downloadURL;
+                        }
+                        if (indexN == 3) {
+                            url4 = downloadURL;
+                        }
+                        //update the value in firebase
+                        var jsonData2 = {
+                            timestamp: timestamp,
+                            feeling: feeling,
+                            img1: url1,
+                            img2: url2,
+                            img3: url3,
+                            img4: url4
+                        };
+                        //push to the same path again to overlap
+                        // Get reference to Firebase database
+                        var ref = firebase.database().ref(path);
+                        // Push data to Firebase with custom key
+                        console.log("path:" + path);
+                        console.log("key:" + key);
+                        console.log("json:" + jsonData2);
+
+                        ref.child(key).set(jsonData2, function (error) {
+                            if (error) {
+                                console.error("Data could not be saved." + error);
+                            } else {
+                                console.log("New wrap created");
+                                // update local storage
+                                localStorage.setItem('currentWrap', JSON.stringify(jsonData2));
+                               
+                                //send this to the backend
+                                console.log(JSON.stringify(jsonData2))
+
+
+                            }
+                        });
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        
-                    })
-                    .catch((error) => {
-                        console.error('Error retrieving data:', error);
                     });
+                }
+            );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        })
+        .catch((error) => {
+            console.error('Error retrieving data:', error);
+        });
 
 
 
