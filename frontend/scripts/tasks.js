@@ -110,7 +110,7 @@ function getDataFromDirectory(directory) {
   console.log(path);
 
   var key = Feeling + "_" + Timestamp;
-const directory = path+"/"+key;
+const directory = path;
   getDataFromDirectory(directory)
     .then((data) => {
   
@@ -124,10 +124,10 @@ const directory = path+"/"+key;
     const parsedData = JSON.parse(jsonDataLoaded);
 
     // Extract image URLs from the parsed object
-    const img1i = parsedData.img1;
-    const img2i = parsedData.img2;
-    const img3i = parsedData.img3;
-    const img4i = parsedData.img4;
+    const img1i = parsedData.key.img1;
+    const img2i = parsedData.key.img2;
+    const img3i = parsedData.key.img3;
+    const img4i = parsedData.key.img4;
 
     // Get image elements by their IDs
     const imageElements = [
