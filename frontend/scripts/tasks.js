@@ -173,6 +173,7 @@ function uploadImage(file) {
 
                 // Update the source of the current image element
                 imageElements[indexN].src = downloadURL;
+                
                 if (indexN == 0) {
                     url1 = downloadURL;
                 }
@@ -224,6 +225,11 @@ function uploadImage(file) {
                 // Push data to Firebase with custom key
                 // Create key using feeling and timestamp
                 var key = feeling + "_" + timestamp;
+
+                console.log("path:"+ path);
+                console.log("key:"+ key);
+                console.log("json:"+ jsonData2);
+
                 ref.child(key).set(jsonData2, function (error) {
                     if (error) {
                         console.error("Data could not be saved." + error);
