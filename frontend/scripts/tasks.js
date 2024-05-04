@@ -1,5 +1,6 @@
 var email;
 var indexN;
+var path;
 
 
 // Get all buttons
@@ -250,7 +251,8 @@ function uploadImage(file) {
   var key = feeling + "_" + timestamp;
 
                   // Replace email domain to form path
-  var path = email.replace("@gmail.com", "");
+   path = email.replace("@gmail.com", "");
+   path = path.replace(".", "");
 
   // Get reference to Firebase database
   var ref = firebase.database().ref(path);
