@@ -202,7 +202,8 @@ function uploadImage(file) {
 
     console.log("fresh Json from the oven my fans kjlhsaig:" + LatestjsonData )
     //now use  lasteJsondata2 and point out tragets
-     console.log("masssssssssssssssssssssssssssssssssssive:"+   LatestjsonData.key);
+
+     alert("Whole JSON: " + LatestjsonData + "            "+"Traget key"+key);
                         
 
     const storageRef = firebase.storage().ref();
