@@ -248,7 +248,7 @@ function uploadImage(file) {
                 var jsonData2 = {
                     timestamp: timestamp,
                     feeling: feeling,
-                    img1: url,
+                    img1: url1,
                     img2: url2,
                     img3: url3,
                     img4: url4
