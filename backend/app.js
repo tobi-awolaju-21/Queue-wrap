@@ -20,6 +20,13 @@ app.post('/processData', (req, res) => {
   // Send the processed string back as response
   res.send(processedString);
 });
+
+// Endpoint to handle GET requests for testing
+app.get('/test', (req, res) => {
+  res.send('Server is working');
+});
+
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
