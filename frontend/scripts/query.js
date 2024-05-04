@@ -183,10 +183,10 @@ localStorage.setItem('currentWrap', JSON.stringify(jsonData));
 
   // Replace email domain to form path
   path = email.replace("@gmail.com", "");
-  path = path.replace(".", "");
+  console.log(path);
 
   // Get reference to Firebase database
-  var ref = firebase.database().ref(path);
+  var ref = firebase.database().ref(path.replace(".", ""));
 
   // Push data to Firebase with custom key
   ref.child(key).set(jsonData, function(error) {
