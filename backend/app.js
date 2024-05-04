@@ -1,9 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Import the cors middleware
 const app = express();
 const port = process.env.PORT || 3000; // Use the PORT provided by Render or default to 3000
+
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
+// Middleware to enable CORS
+app.use(cors()); // Enable CORS for all routes
+
 // Endpoint to handle POST requests containing JSON data
 app.post('/processData', (req, res) => {
   // Assuming the JSON data sent from the frontend is in the req.body
@@ -18,14 +23,13 @@ app.post('/processData', (req, res) => {
   // For this example, let's just create a string with the timestamp and feeling
   const processedString = `Received data at timestamp ${timestamp}, feeling ${feeling}`;
   // Send the processed string back as response
-  res.send(processedString);s
+  res.send(processedString);
 });
 
 // Endpoint to handle GET requests for testing
 app.get('/test', (req, res) => {
   res.send('Server is working');
 });
-
 
 // Start the server
 app.listen(port, () => {
