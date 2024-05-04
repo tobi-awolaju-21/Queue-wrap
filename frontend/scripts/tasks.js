@@ -190,17 +190,54 @@ function uploadImage(file) {
 
 
 
-
+            
 
 
 
 
                 // Parse the JSON string back to an object  load from firebase instead of local storage
                 var parsedData2 = JSON.parse(storedWrap);
-
                 // Extract image URLs from the parsed object
                 timestamp = parsedData2.timestamp;
                 feeling = parsedData2.feeling;
+                // Replace email domain to form path
+                path = email.replace("@gmail.com", "");
+                path = path.replaceAll(".", "");
+                // Create key using feeling and timestamp
+                var key = feeling + "_" + timestamp;
+
+
+
+                 
+getDataFromDirectory(path)
+.then((data) => {
+const LatestjsonData = JSON.stringify(data);
+// Parse JSON data
+const LatestjsonData2 = JSON.parse(LatestjsonData);
+
+console.log("fresh:"+LatestjsonData2)
+
+})
+.catch((error) => {
+  console.error('Error retrieving data:', error);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               //load json from firebase and console log
+
 
                 //update the value in firebase
                 var jsonData2 = {
@@ -217,15 +254,9 @@ function uploadImage(file) {
 
 
 
-                // Replace email domain to form path
-                path = email.replace("@gmail.com", "");
-                path = path.replaceAll(".", "");
                 // Get reference to Firebase database
                 var ref = firebase.database().ref(path);
                 // Push data to Firebase with custom key
-                // Create key using feeling and timestamp
-                var key = feeling + "_" + timestamp;
-
                 console.log("path:"+ path);
                 console.log("key:"+ key);
                 console.log("json:"+ jsonData2);
