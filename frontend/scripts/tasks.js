@@ -153,6 +153,57 @@ fileInput.addEventListener('change', function (event) {
 
 
 
+
+
+                // Parse the JSON string back to an object  load from firebase instead of local storage
+                var parsedData2 = JSON.parse(storedWrap);
+                // Extract image URLs from the parsed object
+                timestamp = parsedData2.timestamp;
+                feeling = parsedData2.feeling;
+                // Replace email domain to form path
+                path = email.replace("@gmail.com", "");
+                path = path.replaceAll(".", "");
+                // Create key using feeling and timestamp
+                var key = feeling + "_" + timestamp;
+                //load json from firebase and console log
+                function getDataFromDirectory(directory) {
+                    return new Promise((resolve, reject) => {
+                        firebase.database().ref(directory).once('value', (snapshot) => {
+                            const data = snapshot.val();
+                            resolve(data);
+                        }, (error) => {
+                            reject(error);
+                        });
+                    });
+                }
+                getDataFromDirectory(path)
+                    .then((data) => {
+                        const LatestjsonData = JSON.stringify(data);
+                        // Parse JSON data
+                        const LatestjsonData2 = JSON.parse(LatestjsonData);
+
+                        console.log("fresh Json from the oven my fans kjlhsaig:" + LatestjsonData )
+
+                    })
+                    .catch((error) => {
+                        console.error('Error retrieving data:', error);
+                    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Function to upload image to Firebase Storage and update the current image element
 function uploadImage(file) {
     const storageRef = firebase.storage().ref();
@@ -186,60 +237,6 @@ function uploadImage(file) {
                 if (indexN == 3) {
                     url4 = downloadURL;
                 }
-
-
-
-
-
-
-
-
-
-                // Parse the JSON string back to an object  load from firebase instead of local storage
-                var parsedData2 = JSON.parse(storedWrap);
-                // Extract image URLs from the parsed object
-                timestamp = parsedData2.timestamp;
-                feeling = parsedData2.feeling;
-                // Replace email domain to form path
-                path = email.replace("@gmail.com", "");
-                path = path.replaceAll(".", "");
-                // Create key using feeling and timestamp
-                var key = feeling + "_" + timestamp;
-
-
-
-
-
-
-                //load json from firebase and console log
-                function getDataFromDirectory(directory) {
-                    return new Promise((resolve, reject) => {
-                        firebase.database().ref(directory).once('value', (snapshot) => {
-                            const data = snapshot.val();
-                            resolve(data);
-                        }, (error) => {
-                            reject(error);
-                        });
-                    });
-                }
-                getDataFromDirectory(path)
-                    .then((data) => {
-                        const LatestjsonData = JSON.stringify(data);
-                        // Parse JSON data
-                        const LatestjsonData2 = JSON.parse(LatestjsonData);
-
-                        console.log("fresh Json from the oven my fans kjlhsaig:" + LatestjsonData )
-
-                    })
-                    .catch((error) => {
-                        console.error('Error retrieving data:', error);
-                    });
-
-
-
-
-
-
 
 
 
