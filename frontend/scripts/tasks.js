@@ -237,7 +237,9 @@ function uploadImage(file) {
                         console.log("New wrap created");
                         // update local storage
                         localStorage.setItem('currentWrap', JSON.stringify(jsonData2));
-
+                       //refresah page
+                       // Redirect to tasks.html when push is successful 
+                         window.location.href = "tasks.html";
 
 
                     }
