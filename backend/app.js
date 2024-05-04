@@ -23,7 +23,7 @@ app.post('/processData', (req, res) => {
   // For this example, let's just create a string with the timestamp and feeling
   const processedString = `Received data at timestamp ${timestamp}, feeling ${feeling}`;
   // Send the processed string back as response
-  res.send(data);
+  res.send(processedString);
 });
 
 // Endpoint to handle GET requests for testing
