@@ -28,8 +28,8 @@ async function sendDataToBackend(parsedData0) {
     // JSON data to send to the backend
     try {
         
-      const response = await fetch('https://queue-wrap.onrender.com/processData', {
-        method: 'POST',
+      const response = await fetch('https://queue-wrap.onrender.com/test', {
+        method: 'GET',
         headers:  {
           'Content-Type': 'application/json'
         },
@@ -45,6 +45,7 @@ async function sendDataToBackend(parsedData0) {
     } catch (error) {
       console.error('Error sending data to backend:', error);
     }
+    
   }
 
 
