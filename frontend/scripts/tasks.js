@@ -43,11 +43,16 @@ var storedTimestamp;
 var email;
 var indexN;
 var url1, url2, url3, url4;
-var imageElements;
 var storedWrap;
 var timestamp;
 var feeling;
 var path;
+var imageElements = [
+    document.getElementById('1img'),
+    document.getElementById('2img'),
+    document.getElementById('3img'),
+    document.getElementById('4img')
+];
 
 // Retrieve the user object from localStorage to check if user is still logged  in
 const storedData = localStorage.getItem('currentUser');
@@ -116,13 +121,6 @@ const captureButtons = [
     document.getElementById('2'),
     document.getElementById('3'),
     document.getElementById('4')
-];
-
-imageElements = [
-    document.getElementById('1img'),
-    document.getElementById('2img'),
-    document.getElementById('3img'),
-    document.getElementById('4img')
 ];
 
 // Add event listeners to each capture button
