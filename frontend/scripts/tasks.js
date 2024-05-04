@@ -172,7 +172,7 @@ function uploadImage(file) {
                 console.log('File available at', downloadURL);
 
                 // Update the source of the current image element
-                imageElements1[indexN].src = downloadURL;
+                imageElements[indexN].src = downloadURL;
                 if (indexN == 0) {
                     url1 = downloadURL;
                 }
