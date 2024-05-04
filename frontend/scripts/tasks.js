@@ -200,11 +200,10 @@ function uploadImage(file) {
                         // Parse JSON data
                         const LatestjsonData2 = JSON.parse(LatestjsonData);
 
-    console.log("fresh Json from the oven my fans kjlhsaig:" + LatestjsonData )
-    //now use  lasteJsondata2 and point out tragets
-
-     alert("Whole JSON: " + LatestjsonData + "            "+"Traget key"+key);
-                        
+    const data = JSON.parse(LatestjsonData);
+    const img3 = data[key]["img3"];
+    console.log("this is it kiss it:"+ img3);
+    
 
     const storageRef = firebase.storage().ref();
     const filename = 'image_' + Date.now() + '.jpg';
