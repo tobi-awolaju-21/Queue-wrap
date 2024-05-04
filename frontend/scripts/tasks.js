@@ -208,6 +208,23 @@ function uploadImage(file) {
 
 
 
+
+
+
+                
+                function getDataFromDirectory(directory) {
+                    return new Promise((resolve, reject) => {
+                      firebase.database().ref(directory).once('value', (snapshot) => {
+                        const data = snapshot.val();
+                        resolve(data);
+                      }, (error) => {
+                        reject(error);
+                      });
+                    });
+                  }
+                  
+
+
                  
 getDataFromDirectory(path)
 .then((data) => {
