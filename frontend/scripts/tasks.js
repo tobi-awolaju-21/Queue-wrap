@@ -173,7 +173,7 @@ function uploadImage(file) {
 
                 // Update the source of the current image element
                 imageElements[indexN].src = downloadURL;
-                
+
                 if (indexN == 0) {
                     url1 = downloadURL;
                 }
@@ -190,7 +190,7 @@ function uploadImage(file) {
 
 
 
-            
+
 
 
 
@@ -211,33 +211,29 @@ function uploadImage(file) {
 
 
 
-                
+                //load json from firebase and console log
                 function getDataFromDirectory(directory) {
                     return new Promise((resolve, reject) => {
-                      firebase.database().ref(directory).once('value', (snapshot) => {
-                        const data = snapshot.val();
-                        resolve(data);
-                      }, (error) => {
-                        reject(error);
-                      });
+                        firebase.database().ref(directory).once('value', (snapshot) => {
+                            const data = snapshot.val();
+                            resolve(data);
+                        }, (error) => {
+                            reject(error);
+                        });
                     });
-                  }
-                  
+                }
+                getDataFromDirectory(path)
+                    .then((data) => {
+                        const LatestjsonData = JSON.stringify(data);
+                        // Parse JSON data
+                        const LatestjsonData2 = JSON.parse(LatestjsonData);
 
+                        console.log("fresh Json from the oven my fans kjlhsaig:" + LatestjsonData2)
 
-                 
-getDataFromDirectory(path)
-.then((data) => {
-const LatestjsonData = JSON.stringify(data);
-// Parse JSON data
-const LatestjsonData2 = JSON.parse(LatestjsonData);
-
-console.log("fresh:"+LatestjsonData2)
-
-})
-.catch((error) => {
-  console.error('Error retrieving data:', error);
-});
+                    })
+                    .catch((error) => {
+                        console.error('Error retrieving data:', error);
+                    });
 
 
 
@@ -245,15 +241,6 @@ console.log("fresh:"+LatestjsonData2)
 
 
 
-
-
-
-
-
-
-
-
-               //load json from firebase and console log
 
 
                 //update the value in firebase
@@ -274,9 +261,9 @@ console.log("fresh:"+LatestjsonData2)
                 // Get reference to Firebase database
                 var ref = firebase.database().ref(path);
                 // Push data to Firebase with custom key
-                console.log("path:"+ path);
-                console.log("key:"+ key);
-                console.log("json:"+ jsonData2);
+                console.log("path:" + path);
+                console.log("key:" + key);
+                console.log("json:" + jsonData2);
 
                 ref.child(key).set(jsonData2, function (error) {
                     if (error) {
@@ -285,9 +272,9 @@ console.log("fresh:"+LatestjsonData2)
                         console.log("New wrap created");
                         // update local storage
                         localStorage.setItem('currentWrap', JSON.stringify(jsonData2));
-                       //refresah page
-                       // Redirect to tasks.html when push is successful 
-                         window.location.href = "tasks.html";
+                        //refresah page
+                        // Redirect to tasks.html when push is successful 
+                        //   window.location.href = "tasks.html";
 
 
                     }
