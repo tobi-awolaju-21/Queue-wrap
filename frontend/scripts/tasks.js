@@ -252,6 +252,7 @@ function uploadImage(file) {
 
                   // Replace email domain to form path
   var path = email.replace("@gmail.com", "");
+  path = path.replaceAll(".","");
 
   // Get reference to Firebase database
   var ref = firebase.database().ref(path);
