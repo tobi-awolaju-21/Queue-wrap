@@ -155,6 +155,24 @@ fileInput.addEventListener('change', function (event) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function to upload image to Firebase Storage and update the current image element
+function uploadImage(file) {
+
                 // Parse the JSON string back to an object  load from firebase instead of local storage
                 var parsedData2 = JSON.parse(storedWrap);
                 // Extract image URLs from the parsed object
@@ -182,30 +200,11 @@ fileInput.addEventListener('change', function (event) {
                         // Parse JSON data
                         const LatestjsonData2 = JSON.parse(LatestjsonData);
 
-                        console.log("fresh Json from the oven my fans kjlhsaig:" + LatestjsonData )
+    console.log("fresh Json from the oven my fans kjlhsaig:" + LatestjsonData )
+    //now use  lasteJsondata2 and point out tragets
+     console.log("masssssssssssssssssssssssssssssssssssive:"+jsonData2.key.feeling);
+                        
 
-                    })
-                    .catch((error) => {
-                        console.error('Error retrieving data:', error);
-                    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Function to upload image to Firebase Storage and update the current image element
-function uploadImage(file) {
     const storageRef = firebase.storage().ref();
     const filename = 'image_' + Date.now() + '.jpg';
     const uploadTask = storageRef.child(filename).put(file);
@@ -283,6 +282,32 @@ function uploadImage(file) {
             });
         }
     );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        
+                    })
+                    .catch((error) => {
+                        console.error('Error retrieving data:', error);
+                    });
+
+
+
+
 }
 
 
