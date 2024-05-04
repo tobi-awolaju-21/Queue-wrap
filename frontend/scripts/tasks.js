@@ -24,6 +24,10 @@ sendDataToBackend(parsedData0);
 
 
 
+
+
+
+
 async function sendDataToBackend(parsedData0) {
     // JSON data to send to the backend
     try {
@@ -42,10 +46,11 @@ async function sendDataToBackend(parsedData0) {
 
       const processedString = await response.text();
       console.log('Processed string from backend:', processedString);
+      console.log('data sent :',  JSON.stringify(this.parsedData0));
+    } catch (error) {
     } catch (error) {
       console.error('Error sending data to backend:', error);
     }
-    
   }
 
 
