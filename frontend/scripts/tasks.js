@@ -115,10 +115,7 @@ const directory = path+"/"+key;
     .then((data) => {
   
        jsonDataLoaded = JSON.stringify(data);
-
-    }
-    );
-
+       console.log(jsonDataLoaded);
 
 
 
@@ -299,6 +296,20 @@ function uploadImage(file) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+    );
 
 
 
