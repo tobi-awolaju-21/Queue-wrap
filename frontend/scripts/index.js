@@ -62,6 +62,9 @@ function getRandomColor() {
   return color;
 }
 
-// Set a random background color to the element
-body.style.backgroundColor = getRandomColor();
 
+// Function to set random background color to body
+function setRandomBackgroundColor() {
+  document.body.style.backgroundColor = getRandomColor();
+}
+setInterval(setRandomBackgroundColor, 2000);
