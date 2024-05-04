@@ -1,7 +1,6 @@
 var email;
 var indexN;
 var url1,url2,url3,url4;
-var currentImageElement;
 
 
 // Get all buttons
@@ -119,6 +118,10 @@ if (storedWrap) {
 
 
 
+
+
+
+
   // Get a reference to the storage service
   var storage = firebase.storage();
 
@@ -130,6 +133,12 @@ const captureButtons = [
     document.getElementById('4')
 ];
 
+const imageElements = [
+    document.getElementById('1img'),
+    document.getElementById('2img'),
+    document.getElementById('3img'),
+    document.getElementById('4img')
+];
 
 // Add event listeners to each capture button
 captureButtons.forEach((button, index) => {
@@ -178,36 +187,22 @@ function uploadImage(file) {
                 currentImageElement.src = downloadURL;
              
 
-                url1 = "http://blank.png:";
-                url2 = "http://blank.png:";
-                url3 = "http://blank.png:";
-                url4 = "http://blank.png:";
 
-
-                switch (indexN) {
-                    case 0:
-                        url1 = downloadURL;
-                        break;
-                    case 1:
-                        url2 = downloadURL;
-                        break;
-                    case 2:
-                        url3 = downloadURL;
-                        break;
-                    case 3:
-                        url4 = downloadURL;
-                        break;
-                    default:
-                        // Handle the case where indexN is not in the range [0, 3]
-                        break;
+                if (indexN == 0) {
+                    url1 = downloadURL;
                 }
-                
 
-                
+                if (indexN == 1) {
+                    url2 = downloadURL;
+                }
 
-               
+                if (indexN == 2) {
+                    url3 = downloadURL;
+                }
 
-              
+                if (indexN == 3) {
+                    url4 = downloadURL;
+                }
 
                 
 
