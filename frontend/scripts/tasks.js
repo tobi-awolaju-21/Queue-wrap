@@ -1,5 +1,6 @@
 var email;
 var indexN;
+var url1,url2,url3,url4;
 
 
 // Get all buttons
