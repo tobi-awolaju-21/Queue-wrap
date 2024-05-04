@@ -15,7 +15,7 @@ document.getElementById("play0").addEventListener("click", function () {
     this.classList.add("click-animation");
 // Retrieve the user object from localStorage
 storedWrap = localStorage.getItem('currentWrap');
-const parsedData0 = JSON.parse(storedData);
+const parsedData0 = JSON.parse(storedWrap);
 console.log(parsedData0);
 
     // Redirect to home.html after the animation ends
