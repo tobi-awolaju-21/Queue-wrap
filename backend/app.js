@@ -15,6 +15,7 @@ app.post('/processData', async (req, res) => { // Use async function
   const img1 = data.img1;
   const img2 = data.img2;
   const img3 = data.img3;
+  const img4 = data.img4;
   var imageLabel = "Animal";
 
   const API_KEY = "AIzaSyBWaNaPOdgFWUyO7A-NiKq0fvop8t1JlPw"; // Insert your API key here
@@ -25,7 +26,7 @@ app.post('/processData', async (req, res) => { // Use async function
         "role": "user",
         "parts": [
           {
-            "text": `<img data-sample-image-id="${imageLabel}" class="input-image" src="${img2}">generate a mini story that can caption the image but use the theme:${feeling}`
+            "text": `<img data-sample-image-id="${imageLabel}" class="input-image" src="${img1}"><img data-sample-image-id="${imageLabel}"  class="input-image" src="${img2}"><img data-sample-image-id="${imageLabel}" class="input-image" src="${img3}"><img data-sample-image-id="${imageLabel}"class="input-image" src="${img4}">Describe all the images with a word in one sentence that matches the felling of ${feeling}`
           }
         ]
       }
