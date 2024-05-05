@@ -16,7 +16,7 @@ app.post('/processData', async (req, res) => { // Use async function
   const img2 = data.img2;
   const img3 = data.img3;
   const img4 = data.img4;
-  var imageLabel = "Animal";
+  var imageLabel = "People";
 
   const API_KEY = "AIzaSyBWaNaPOdgFWUyO7A-NiKq0fvop8t1JlPw"; // Insert your API key here
   const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=" + API_KEY;
