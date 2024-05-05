@@ -53,6 +53,8 @@ async function sendDataToBackend(parsedData0) {
                     wrap: processedString
                 };
                 var ref = firebase.database().ref(path);
+
+                var key = parsedData0.feeling + "_" + parsedData0.timestamp;
                 ref.child(key).set(jsonData3, function (error) {
                     if (error) {
                         console.error("Data could not be saved." + error);
