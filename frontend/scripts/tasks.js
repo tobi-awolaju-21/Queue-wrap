@@ -44,12 +44,12 @@ async function sendDataToBackend(parsedData0) {
       
       //push to firebase
                 var jsonData3 = {
-                    timestamp: parsedData.img1,
-                    feeling: parsedData.img1,
-                    img1: parsedData.img1,
-                    img2: parsedData.img1,
-                    img3: parsedData.img1,
-                    img4: parsedData.img1,
+                    timestamp: parsedData0.timestamp,
+                    feeling: parsedData0.feeling,
+                    img1: parsedData0.img1,
+                    img2: parsedData0.img2,
+                    img3: parsedData0.img3,
+                    img4: parsedData0.img4,
                     wrap: processedString
                 };
                 var ref = firebase.database().ref(path);
@@ -73,22 +73,6 @@ async function sendDataToBackend(parsedData0) {
       console.error('Error sending data to backend:', error);
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
