@@ -58,10 +58,10 @@ if (storedWrap) {
         document.getElementById('4img')
     ];
     // Assign image sources to the corresponding image elements
-    imageElements1[0].src = img1i;
-    imageElements1[1].src = img2i;
-    imageElements1[2].src = img3i;
-    imageElements1[3].src = img4i;
+    imageElements1[0].src = src1;
+    imageElements1[1].src = src2;
+    imageElements1[2].src = src3;
+    imageElements1[3].src = src4;
      // load on webpage
 
 
