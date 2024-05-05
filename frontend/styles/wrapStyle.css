@@ -79,6 +79,7 @@ body{
     }
 
 /* Styling for wrap and wrap2 */
+.wrap1,
 .wrap,
 .wrap2 {
   padding: 0;
@@ -93,6 +94,15 @@ body{
 }
 
 /* Additional styling for wrap2 to make it overlap wrap */
-.wrap2 {
+.wrap1 {
+  z-index: 0; /* Set a higher z-index to overlap wrap */
+  background-color: #b300ff;
+}
+/* Additional styling for wrap2 to make it overlap wrap */
+.wrap {
   z-index: 1; /* Set a higher z-index to overlap wrap */
+}
+/* Additional styling for wrap2 to make it overlap wrap */
+.wrap2 {
+  z-index: 2; /* Set a higher z-index to overlap wrap */
 }
