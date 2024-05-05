@@ -67,6 +67,8 @@ if (storedWrap) {
 
 
      // p5 js sketch
+var offsetY = 40;
+
 
 function setup() {
   let canvasWidth = document.getElementById('preview').clientWidth;
@@ -97,10 +99,10 @@ function draw() {
   fill(backgroundColor);
   noStroke();
   rectMode(CENTER);
-  rect(x, y+imgHeight*1.5, rectWidth, rectHeight);
+  rect(x, y+offsetY*1.5, rectWidth, rectHeight);
   // Draw text
   fill(0); // Reset fill color to black for text
-  text(textContent, x, y+imgHeight*1.4);
+  text(textContent, x, y+offsetY*1.4);
 }
 
      // end of p5 js sketch
