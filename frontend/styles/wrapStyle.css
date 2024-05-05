@@ -78,24 +78,21 @@ body{
       width:25%;
     }
 
+/* Styling for wrap and wrap2 */
+.wrap,
+.wrap2 {
+  padding: 0;
+  background-color: #e6acff00;
+  width: 75vw;
+  height: 60vh;
+  color: #000000;
+  position: fixed; /* Position fixed to keep them centered */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the div precisely */
+}
 
-     .wrap,
-    .wrap2 {
-      padding: 0px;
-      background-color:#e6acff00;
-      width: 75vw;
-      height:60vh;
-      color: #000000;
-    }
-
-    /* Positioning the first div */
-    .wrap {
-        top: 50px; /* Adjust top position as needed */
-        left: 50px; /* Adjust left position as needed */
-    }
-
-    /* Positioning the second div to overlap the first */
-    .wrap2 {
-        top: 50px; /* Adjust top position to match the first div */
-        left: 50px; /* Adjust left position to match the first div */
-    }
+/* Additional styling for wrap2 to make it overlap wrap */
+.wrap2 {
+  z-index: 1; /* Set a higher z-index to overlap wrap */
+}
