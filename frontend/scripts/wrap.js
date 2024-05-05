@@ -67,23 +67,6 @@ if (storedWrap) {
 
 
      // p5 js sketch
-     
-let img1, img2, img3, img4; // Declare variables to hold the images
-
-function preload() {
-  // Load the images from the URLs
-  img1 = loadImage(src1);
-  img2 = loadImage(src2);
-  img3 = loadImage(src3);
-  img4 = loadImage(src4);
-}
-
-
-
-
-
-
-
 
 function setup() {
   let canvasWidth = document.getElementById('preview').clientWidth;
