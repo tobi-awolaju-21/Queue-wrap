@@ -78,6 +78,13 @@ function preload() {
   img4 = loadImage(src4);
 }
 
+
+
+
+
+
+
+
 function setup() {
   let canvasWidth = document.getElementById('preview').clientWidth;
   let canvasHeight = document.getElementById('preview').clientHeight;
@@ -87,31 +94,6 @@ function setup() {
 
 function draw() {
   background(52,220,62);
-  let imgWidth = width * 0.4; // Width of each image (20% of canvas width)
-  let imgHeight = imgWidth * img1.height / img1.width; // Maintain aspect ratio
-  let spacing = 20; // Spacing between images
-
-  // Calculate the x-coordinate for the center of the canvas
-  let centerX = width / 2;
-
-  // Calculate the total width occupied by images and spacing
-  let totalWidth = imgWidth * 4 + spacing * 3;
-
-  // Calculate the starting x-coordinate for the first image
-  let startX = centerX - totalWidth / 3;
-
-  // Display the first image
-  image(img1, startX, height / 2 - imgHeight / 2, imgWidth, imgHeight);
-
-  // Display the second image
-  image(img2, startX + imgWidth - spacing, (height / 2 - imgHeight / 2)*0.9, imgWidth, imgHeight);
-
-  // Display the third image
-  image(img3, startX + 2 * (imgWidth - spacing), (height / 2 - imgHeight / 2)*0.8, imgWidth, imgHeight);
-
-  // Display the fourth image
-  image(img4, startX + 3 * (imgWidth - spacing), height / 2 - imgHeight / 2, imgWidth, imgHeight);
-
   // Set text color
   fill(0); // Black text
   // Set text size
