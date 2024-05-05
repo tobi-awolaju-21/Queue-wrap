@@ -51,7 +51,18 @@ if (storedWrap) {
      src4 = parsedData.img4;
      wrap = parsedData.wrap;
 
-
+     const imageElements1 = [
+        document.getElementById('1img'),
+        document.getElementById('2img'),
+        document.getElementById('3img'),
+        document.getElementById('4img')
+    ];
+    // Assign image sources to the corresponding image elements
+    imageElements1[0].src = img1i;
+    imageElements1[1].src = img2i;
+    imageElements1[2].src = img3i;
+    imageElements1[3].src = img4i;
+     // load on webpage
 
 
 
