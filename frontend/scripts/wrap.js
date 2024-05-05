@@ -1,14 +1,3 @@
-//next page
-document.getElementById("defaultCanvas0").addEventListener("click", function() {
-    // Add click animation class to the button
-    this.classList.add("click-animation");
-
-    // Redirect to home.html after the animation ends
-    setTimeout(() => {
-        window.location.href = "wrapview.html";
-    }, 150); // 0.3 seconds for the animation duration
-});
-
 
 
 // Retrieve the user object from localStorage
@@ -124,3 +113,15 @@ function touchStarted() {
 } else {
     // Handle case when 'currentWrap' is not found in localStorage
 }
+
+//next page
+document.getElementById("defaultCanvas0").addEventListener("click", function() {
+    // Add click animation class to the button
+    this.classList.add("click-animation");
+
+    // Redirect to home.html after the animation ends
+    setTimeout(() => {
+        window.location.href = "wrapview.html";
+    }, 150); // 0.3 seconds for the animation duration
+});
+
