@@ -3,127 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>API Test</title>
+  <title>p5.js Canvas</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
 <body>
-  <button onclick="run()">Run</button>
-  <div id="result"></div>
-
+  <img class="hideimg" id="1img" style="width: 100px;" src="https://firebasestorage.googleapis.com/v0/b/queuewrap.appspot.com/o/image_1714900909966.jpg?alt=media&token=13735f5d-a565-489a-b5cd-d86c0769b456">
   <script>
-    function run() {
-  const API_KEY = "AIzaSyBWaNaPOdgFWUyO7A-NiKq0fvop8t1JlPw";
-  const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=" + API_KEY;
-  const data = {
-    "contents": [
-      {
-        "role": "user",
-        "parts": [
-          {
-            "text": "<img data-sample-image-id=\"animal1\" class=\"input-image\" src=\"blob:https://aistudio.google.com/a680e2db-d682-40be-90fe-a935e578c0b2\">caption this, you are running a social media account for pets? "
-          }
-        ]
-      }
-    ],
-    "generationConfig": {
-      "temperature": 1,
-      "topK": 0,
-      "topP": 0.95,
-      "maxOutputTokens": 200,
-      "stopSequences": []
-    },
-    "safetySettings": [
-      {
-        "category": "HARM_CATEGORY_HARASSMENT",
-        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-      },
-      {
-        "category": "HARM_CATEGORY_HATE_SPEECH",
-        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-      },
-      {
-        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-      },
-      {
-        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-      }
-    ]
-  };
+    let imgElement; // Variable to hold the image element
+    let imgData; // Variable to hold the image data
 
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('result').innerText = JSON.stringify(data, null, 2);
-    var specificResponse = data.candidates[0].content.parts[0].text;
-    document.getElementById('result').innerText = specificResponse;
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-}
+    function setup() {
+      // Create a canvas
+      createCanvas(400, 400);
 
+      // Get the image element from the HTML using its ID
+      imgElement = document.getElementById('1img');
+
+      // Get the image data from the image element
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = imgElement.width;
+      canvas.height = imgElement.height;
+      ctx.drawImage(imgElement, 0, 0);
+      imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    }
+
+    function draw() {
+      // Display the image data on the canvas
+      for (let i = 0; i < imgData.data.length; i += 4) {
+        let r = imgData.data[i];
+        let g = imgData.data[i + 1];
+        let b = imgData.data[i + 2];
+        let a = imgData.data[i + 3];
+        let x = (i / 4) % imgData.width;
+        let y = Math.floor((i / 4) / imgData.width);
+        fill(r, g, b, a);
+        noStroke();
+        rect(x, y, 1, 1); // Draw each pixel as a rectangle
+      }
+    }
   </script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-const express = require('express');
-const bodyParser = require('body-parser');
-
-const app = express();
-
-// Middleware to parse JSON bodies
-app.use(bodyParser.json());
-
-// Endpoint to handle POST requests containing the required keys
-app.post('/submit', (req, res) => {
-  const { email, feeling, timestamp, img1, img2, img3, img4 } = req.body;
-
-  // Here you can process the received data as needed
-  // For example, you can log it to the console
-  console.log('Received request:');
-  console.log('Email:', email);
-  console.log('Feeling:', feeling);
-  console.log('Timestamp:', timestamp);
-  console.log('Image 1:', img1);
-  console.log('Image 2:', img2);
-  console.log('Image 3:', img3);
-  console.log('Image 4:', img4);
-
-  // You can send back a response if needed
-  res.send('Request received successfully!');
-});
-
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
-
-
--->
