@@ -105,6 +105,20 @@ function draw() {
   text(textContent, x, y+offsetY*1.4);
 }
 
+
+
+  // Add event listener to the canvas
+  canvas.mouseClicked(function() {
+    window.location.href = "wrapview.html";
+  });
+
+// Add event listener to the canvas
+function touchStarted() {
+    if (touches.length > 0) {
+      // Redirect to "wrapview.html" when canvas is touched
+      window.location.href = "wrapview.html";
+    }
+  }
      // end of p5 js sketch
    
 } else {
