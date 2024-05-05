@@ -95,12 +95,6 @@ function draw() {
 }
 
 
-
-  // Add event listener to the canvas
-  canvas.mouseClicked(function() {
-    window.location.href = "wrapview.html";
-  });
-
 // Add event listener to the canvas
 function touchStarted() {
     if (touches.length > 0) {
