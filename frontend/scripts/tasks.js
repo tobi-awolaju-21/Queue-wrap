@@ -62,7 +62,8 @@ async function sendDataToBackend(parsedData0) {
                         console.log("New wrap created");
                         // update local storage
                         localStorage.setItem('currentWrap', JSON.stringify(jsonData3));
-                       
+                        // Redirect to tasks.html when push is successful 
+                        window.location.href = "wrap.html";
                         //send this to the backend
                         console.log(JSON.stringify(jsonData3))
                     }
