@@ -73,15 +73,29 @@ body{
         justify-content: center;
     }
 
-    .wrap{
-        padding: 0px;
-        background-color:#e6acff;
-        width: 75vw;
-        height:60vh;
-        color: #000000;
-    }
-
+   
     .hideimg{
       width:25%;
     }
-    
+
+
+     .wrap,
+    .wrap2 {
+      padding: 0px;
+      background-color:#e6acff00;
+      width: 75vw;
+      height:60vh;
+      color: #000000;
+    }
+
+    /* Positioning the first div */
+    .wrap {
+        top: 50px; /* Adjust top position as needed */
+        left: 50px; /* Adjust left position as needed */
+    }
+
+    /* Positioning the second div to overlap the first */
+    .wrap2 {
+        top: 50px; /* Adjust top position to match the first div */
+        left: 50px; /* Adjust left position to match the first div */
+    }

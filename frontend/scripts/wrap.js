@@ -78,7 +78,7 @@ function setup() {
 }
 
 function draw() {
-  background(52,220,62);
+  background(0,0,0,0);
   // Set text color
   fill(0); // Black text
   // Set text size
