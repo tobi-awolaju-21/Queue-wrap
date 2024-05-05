@@ -74,7 +74,7 @@ function setup() {
   let canvasWidth = document.getElementById('preview').clientWidth;
   let canvasHeight = document.getElementById('preview').clientHeight;
   let canvas = createCanvas(canvasWidth, canvasHeight);
-  canvas.parent('preview'); // attach canvas to the #preview div
+  canvas.parent('preview2'); // attach canvas to the #preview div
 }
 
 function draw() {
