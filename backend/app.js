@@ -25,7 +25,7 @@ app.post('/processData', async (req, res) => { // Use async function
         "role": "user",
         "parts": [
           {
-            "text": `<img data-sample-image-id="${imageLabel}" class="input-image" src="${img1}"><img data-sample-image-id="${imageLabel}"  class="input-image" src="${img2}"><img data-sample-image-id="${imageLabel}"   class="input-image" src="${img3}"><img data-sample-image-id="${imageLabel}"   class="input-image" src="${img4}">Describe all the images with a word in one sentence that matches the felling of ${feeling}`
+            "text": `<img data-sample-image-id="${imageLabel}" class="input-image" src="${img2}">generate a mini story that can caption the image but use the theme:${feeling}`
           }
         ]
       }
