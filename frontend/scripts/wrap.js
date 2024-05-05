@@ -1,5 +1,5 @@
 //next page
-document.getElementById("preview2").addEventListener("click", function() {
+document.getElementById("wrap2").addEventListener("click", function() {
     // Add click animation class to the button
     this.classList.add("click-animation");
 
