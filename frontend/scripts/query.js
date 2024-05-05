@@ -174,7 +174,8 @@ document.getElementById("done").addEventListener("click", function() {
       img1:'http://blank.png',
       img2:'http://blank.png',
       img3:'http://blank.png',
-      img4:'http://blank.png'
+      img4:'http://blank.png',
+      wrap: "no-content"
   };
 
  // Save jsonData to local storage

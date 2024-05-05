@@ -17,7 +17,6 @@ document.getElementById("play0").addEventListener("click", function () {
 storedWrap = localStorage.getItem('currentWrap');
 const parsedData0 = JSON.parse(storedWrap);
 console.log(parsedData0);
-
 sendDataToBackend(parsedData0);
 
 });
@@ -42,10 +41,55 @@ async function sendDataToBackend(parsedData0) {
 
       const processedString = await response.text();
       console.log('Processed string from backend:', processedString);
+      
+      //push to firebase
+                var jsonData3 = {
+                    timestamp: parsedData.img1,
+                    feeling: parsedData.img1,
+                    img1: parsedData.img1,
+                    img2: parsedData.img1,
+                    img3: parsedData.img1,
+                    img4: parsedData.img1,
+                    wrap: processedString
+                };
+                var ref = firebase.database().ref(path);
+                ref.child(key).set(jsonData3, function (error) {
+                    if (error) {
+                        console.error("Data could not be saved." + error);
+                    } else {
+                        console.log("New wrap created");
+                        // update local storage
+                        localStorage.setItem('currentWrap', JSON.stringify(jsonData3));
+                       
+                        //send this to the backend
+                        console.log(JSON.stringify(jsonData3))
+                    }
+                });
+      //end of push to firebase 
+
+       
+       
     } catch (error) {
       console.error('Error sending data to backend:', error);
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //next page
@@ -71,38 +115,6 @@ document.getElementById("play2").addEventListener("click", function () {
         window.location.href = "wrap.html";
     }, 300); // 0.3 seconds for the animation duration
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -276,7 +288,8 @@ function uploadImage(file) {
                             img1: url1,
                             img2: url2,
                             img3: url3,
-                            img4: url4
+                            img4: url4,
+                            wrap: "no-content"
                         };
                         //push to the same path again to overlap
                         // Get reference to Firebase database
@@ -316,12 +329,3 @@ function uploadImage(file) {
 
 
 }
-
-
-
-
-
-
-
-
-
