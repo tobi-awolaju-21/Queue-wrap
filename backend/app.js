@@ -26,7 +26,7 @@ app.post('/processData', async (req, res) => { // Use async function
         "role": "user",
         "parts": [
           {
-            "text": `<img data-sample-image-id="${imageLabel}" class="input-image" src="${img1}"><img data-sample-image-id="${imageLabel}"  class="input-image" src="${img2}"><img data-sample-image-id="${imageLabel}" class="input-image" src="${img3}"><img data-sample-image-id="${imageLabel}"class="input-image" src="${img4}">Describe all the images with a word in one sentence that matches the felling of ${feeling}`
+            "text": `<img data-sample-image-id="${imageLabel}" class="input-image" src="${img1}"><img data-sample-image-id="${imageLabel}"  class="input-image" src="${img2}"><img data-sample-image-id="${imageLabel}" class="input-image" src="${img3}"><img data-sample-image-id="${imageLabel}"class="input-image" src="${img4}">using observations from those images, and this theme:${feeling}, I want you to generate a wrap that can be posted on social media, it should have a title, and texts that sound like something out of sportify wrap, starting each sentence with "you" for example"your Dressing personality: The Maverick"`
           }
         ]
       }
