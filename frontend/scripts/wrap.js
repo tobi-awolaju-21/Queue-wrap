@@ -61,10 +61,10 @@ let img1, img2, img3, img4; // Declare variables to hold the images
 
 function preload() {
   // Load the images from the URLs
-  img1 = loadImage('./img/wrapped.jpg');
-  img2 = loadImage('./img/wrapped.jpg');
-  img3 = loadImage('./img/wrapped.jpg');
-  img4 = loadImage('./img/wrapped.jpg');
+  img1 = loadImage(src1);
+  img2 = loadImage(src2);
+  img3 = loadImage(src3);
+  img4 = loadImage(src4);
 }
 
 function setup() {
@@ -108,7 +108,7 @@ function draw() {
   // Set text alignment
   textAlign(CENTER, CENTER);
   // Draw text with background
-  let textContent = "Feeling Good ";
+  let textContent = "Feeling " +feeling;
   let textWidthValue = textWidth(textContent); // Get the width of the text
   let textHeightValue = textAscent() + textDescent(); // Get the total height of the text (including ascenders and descenders)
   let padding = 10; // Padding around the text
