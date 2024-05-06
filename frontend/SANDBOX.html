@@ -1,30 +1,12 @@
 <script>
   var jsonString = `{
-    "comment1": {
-      "title": "Lucky Vibes Outfit Recap 🍀",
-      "text": "You are #Snatched: Dripping in good fortune with every fit!"
-    },
-    "comment2": {
-      "title": "Fashion Fortune Teller 🔮",
-      "text": "You are #Bussin: Your style radiates lucky vibes wherever you go."
-    },
-    "comment3": {
-      "title": "Closet of Charms ✨",
-      "text": "You are #Fleekin: Attracting all the good luck with your killer looks!"
-    },
-    "comment4": {
-      "title": "Lucky Lookbook 💫",
-      "text": "You are #Goals: Serving up lucky lewks all year long!"
-    }
-  }`;
+    "text": "json\n{\n \"comment1\": {\n \"title\": \"Your Style Aura: #Snatched ✨\",\n \"text\": \"You served looks that could kill all year long, boo!\" \n },\n \"comment2\": {\n \"title\": \"Your Fashion Vibe: #Bussin' 🔥\",\n \"text\": \"You were dripping in finesse, leaving everyone shook with your outfits.\"\n },\n \"comment3\": {\n \"title\": \"Your Outfit Energy: #Fleek 💯\",\n \"text\": \"You owned every single look, radiating confidence and style.\"\n },\n \"comment4\": {\n \"title\": \"Your Wardrobe Mood: #Goals 😍\",\n \"text\": \"You understood the assignment and aced it with your killer fashion sense.\"\n }\n}\n"}`;
 
- // Extract JSON string from response
- const startIndex = jsonString.indexOf('{');
-  const endIndex = jsonString.lastIndexOf('}') + 1;
-  const jsonContent = jsonString.substring(startIndex, endIndex);
-
-  // Parse JSON string to object
-  const jsonObject = JSON.parse(jsonContent);
+  // Extract JSON string from response
+  const regex = /json\n([\s\S]*)/;
+  const match = jsonString.match(regex);
+  const textAfterJson = match[1].trim();
+  const jsonObject = JSON.parse(textAfterJson.substring(0, textAfterJson.lastIndexOf("}") - 1));
 
   // Extracted comments
   const comments = {};
@@ -50,6 +32,3 @@
   document.getElementById("mytext4").textContent = c4;
 
 </script>
-
-
-
