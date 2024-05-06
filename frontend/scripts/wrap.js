@@ -71,7 +71,7 @@ function draw() {
   // Set text color
   fill(0); // Black text
   // Set text size
-  textSize(32);
+  textSize(18);
   // Set text alignment
   textAlign(CENTER, CENTER);
   // Draw text with background
