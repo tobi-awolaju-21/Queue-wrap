@@ -88,7 +88,7 @@ document.getElementById("play0").addEventListener("click", function () {
 
     // Redirect to home.html after the animation ends
     setTimeout(() => {
-        window.location.href = "wrap.html";
+        window.location.href = "http://www.yputube.com";
     }, 300); // 0.3 seconds for the animation duration
 });
 
