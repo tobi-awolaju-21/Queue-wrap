@@ -127,3 +127,25 @@ console.log(parsedData0);
 
                 var stringWrap =  parsedData0.wrap;
                 document.getElementById("mytext").textContent = stringWrap;
+
+
+                const jsonString = '{"text":"```json\n{\n\"comment1\": \"Your Style Vibe: #Snatched! You\'re all about confidence and bold looks that turn heads. 🤩\",\n\"comment2\": \"Your Fashion Aura: #DrippedOut! Effortlessly cool with a touch of mystery, you own your unique style. 😎\",\n\"comment3\": \"Your Outfit Energy: #Fleekin! Always on point, your outfits are a perfect blend of trendy and timeless. ✨\",\n\"comment4\": \"Your Look Language: #Bussin! You know how to rock any outfit and make it your own, with an extra dose of fabulousness. 💅\" \n}\n```"}';
+
+// Extracting JSON part from the string
+const jsonStartIndex = jsonString.indexOf('{');
+const jsonEndIndex = jsonString.lastIndexOf('}');
+const jsonStr = jsonString.substring(jsonStartIndex, jsonEndIndex + 1);
+
+// Parsing JSON
+const jsonData = JSON.parse(jsonStr);
+
+// Extracting comments
+const comment1 = jsonData.comment1.trim();
+const comment2 = jsonData.comment2.trim();
+const comment3 = jsonData.comment3.trim();
+const comment4 = jsonData.comment4.trim();
+
+console.log("comment1:", comment1);
+console.log("comment2:", comment2);
+console.log("comment3:", comment3);
+console.log("comment4:", comment4);
