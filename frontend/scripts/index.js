@@ -65,4 +65,4 @@ function getRandomColor() {
 function setRandomBackgroundColor() {
   document.body.style.backgroundColor = getRandomColor();
 }
-setInterval(setRandomBackgroundColor, 2000);
+setInterval(setRandomBackgroundColor,1000);
