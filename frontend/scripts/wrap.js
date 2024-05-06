@@ -27,6 +27,62 @@ if (storedData) {
 
 
 
+
+     // p5 js sketch
+     var offsetY = 40;
+
+     function setup() {
+       let canvasWidth = document.getElementById('preview').clientWidth;
+       let canvasHeight = document.getElementById('preview').clientHeight;
+       let canvas = createCanvas(canvasWidth, canvasHeight);
+       canvas.parent('preview2'); // attach canvas to the #preview div
+     }
+     
+     function draw() {
+       background(0,0,0,0);
+       // Set text color
+       fill(0); // Black text
+       // Set text size
+       textSize(18);
+       // Set text alignment
+       textAlign(CENTER, CENTER);
+       // Draw text with background
+       let textContent = "Feeling " +feeling;
+       let textWidthValue = textWidth(textContent); // Get the width of the text
+       let textHeightValue = textAscent() + textDescent(); // Get the total height of the text (including ascenders and descenders)
+       let padding = 10; // Padding around the text
+       let backgroundColor = color(255, 204, 0); // Background color (yellow in this example)
+       let rectWidth = textWidthValue + 2 * padding; // Width of the background rectangle
+       let rectHeight = textHeightValue + 2 * padding; // Height of the background rectangle
+       let x = width / 2; // X-coordinate of the center of the canvas
+       let y = (height / 2); // Y-coordinate of the center of the canvas
+       // Draw background rectangle
+       fill(backgroundColor);
+       noStroke();
+       rectMode(CENTER);
+       rect(x, y+offsetY*1.5, rectWidth, rectHeight);
+       // Draw text
+       fill(0); // Reset fill color to black for text
+       text(textContent, x, y+offsetY*1.4);
+     }
+     
+     
+     // Add event listener to the canvas
+     function touchStarted() {
+         if (touches.length > 0) {
+           document.getElementById('preview').click();
+       }
+     }
+     
+     document.getElementById('preview').addEventListener('click', function() {
+       // Scale up the preview
+       this.style.transform = 'scale(2)';
+       // Redirect to "wrapview.html" after 500ms
+       setTimeout(function() {
+           window.location.href = "wrapview.html";
+       }, 500);
+     });
+          // end of p5 js sketch
 // Retrieve the user object from localStorage
 storedWrap = localStorage.getItem('currentWrap');
 if (storedWrap) {

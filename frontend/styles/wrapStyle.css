@@ -3,7 +3,9 @@ body {padding: 0px; margin: 0; overflow: hidden;}
 font-family: 'Montserrat', sans-serif;
 }
 
-.screen {background: #32e984; height: 100vh; width: 100vw;}
+.screen {
+  width: 75vw;
+  background: #8348d0; height: 60vh;}
 .buttons {
     position: fixed;
     bottom: 0;
@@ -14,8 +16,8 @@ font-family: 'Montserrat', sans-serif;
       padding: 20px;
 }
 
-.card {width: 100%; display: block;
-transform-style: preserve-3d; height: 100vh;
+.card {width:75vw; display: block;
+transform-style: preserve-3d; height: 60vh;
    transition-delay: 0.25s;
 }
 
@@ -47,23 +49,22 @@ p:nth-child(odd) {
 }
 
 p:nth-child(1) {
-  color: #d3f971;
-  font-size: 40px;
+  color: #ffe59c;
+  font-size: 50px;
 }
 p:nth-child(2) {
-  color: #4b917d;
-  
-  font-size: 40px;
+  color: #af92ff;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 p:nth-child(3) {
-  color: #ffffff;
-  
-  font-size: 40px;
+  color: #fff;
+  font-size: 20px;
 }
 p:nth-child(4) {
   color: #ffffff;
-  
-  font-size: 40px;
+  font-size: 45px;
 }
 
 p.underline {font-size: 28px; text-align: center; margin-top: 50px; color: #d3f971;}
@@ -97,4 +98,47 @@ p.underline {font-size: 28px; text-align: center; margin-top: 50px; color: #d3f9
   &:nth-child(9){  left: 66.666666%; top: 66.666666%;
     &:hover ~ .card {transform: rotateY(-8deg) rotateX(5deg);}
    }
+}
+
+
+
+
+
+.block1 {
+  width: 100vw;
+}
+
+
+.wrap1,
+.wrap,
+.wrap2 {
+padding: 0;
+background-color: #e6acff00;
+width: 75vw;
+height: 60vh;
+color: #000000;
+position: fixed; /* Position fixed to keep them centered */
+top: 50%; /* Center vertically */
+left: 50%; /* Center horizontally */
+transform: translate(-50%, -50%); /* Center the div precisely */
+}
+
+
+h2{
+  text-align: center;
+  margin: px;
+  font-size:large;
+
+}
+
+h1{
+  font-size:30px;
+  width: 80vw;
+  margin: 20px;
+  color:#acacac
+}
+
+p{
+  color:#6c6c6c;
+  margin-bottom: 50px;
 }
