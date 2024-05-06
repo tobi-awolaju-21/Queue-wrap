@@ -126,8 +126,11 @@ console.log(parsedData0);
 
 
 
-                
+
   document.getElementById("mytext0").textContent = parsedData0.wrap;
+
+  
+  setTimeout(() => {
   var jsonString = document.getElementById("mytext0").textContent;
   jsonString = jsonString.replaceAll("```","");
   jsonString = jsonString.replaceAll("\\n", "");
@@ -166,3 +169,5 @@ const jsonObject = JSON.parse(jsonString);
   document.getElementById("mytext2").textContent = c2;
   document.getElementById("mytext3").textContent = c3;
   document.getElementById("mytext4").textContent = c4;
+
+}, 1000); // 1000 milliseconds = 1 second
