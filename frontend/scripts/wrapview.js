@@ -137,6 +137,7 @@ console.log(parsedData0);
 
  // Parse JSON string to object
  const jsonObject = JSON.parse(jsonContent);
+ console.log("Comment 1 rest:", jsonObject);
 
  // Extracted comments
  const comments = {};
@@ -145,6 +146,8 @@ console.log(parsedData0);
    const comment = jsonObject[commentKey];
    if (comment) {
      comments[`c${i}`] = comment.text;
+     console.log(comment.text);
+     
    }
  }
 
