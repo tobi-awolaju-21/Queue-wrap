@@ -32,17 +32,16 @@ body {
     width: 30vh;
     height: 30vh;
     max-height: 30vh;
-    background-color: #797979;
     display: inline-block;
     margin-right: 5px; /* Adjust as needed */
     scale: 0.85;
+  
   }
 
   .square2 {
     width: 30vh;
     height: 30vh;
     max-height: 30vh;
-    background-color: #797979;
     display: inline-block;
     margin-right: 5px; /* Adjust as needed */
   }
@@ -51,7 +50,6 @@ body {
     width: 30vh;
     height: 30vh;
     max-height: 30vh;
-    background-color: #797979;
     display: inline-block;
     margin-right: 5px; /* Adjust as needed */
     scale: 0.85;
@@ -73,7 +71,7 @@ body {
 
   .dashed-divider {
     border: none;
-    border-top: 2px dashed #ffffff; /* Adjust color and thickness as needed */
+    border-top: 2px dashed #ffffff72; /* Adjust color and thickness as needed */
     margin: 20px 0; /* Adjust margin as needed */
 }
 
