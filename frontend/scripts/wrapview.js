@@ -126,17 +126,22 @@ console.log(parsedData0);
 
 
 
-                document.getElementById("mytext0").textContent = parsedData0.wrap;
-               
-             // Assuming parsedData0 is already defined somewhere in your code
-const jsonString = parsedData0.wrap;
-const mytext0Value = document.getElementById("mytext0").textContent;
+   document.getElementById("mytext0").textContent = parsedData0.wrap;
+  var jsonString = document.getElementById("mytext0").textContent;
+  jsonString = jsonString.replaceAll("```","");
+  jsonString = jsonString.replaceAll("\\n", "");
+  jsonString = jsonString.replaceAll("\\", "");
 
-  // Extract JSON string from response
-  const regex = /json\n([\s\S]*)/;
-  const match = jsonString.match(regex);
-  const textAfterJson = match[1].trim();
-  const jsonObject = JSON.parse(textAfterJson.substring(0, textAfterJson.lastIndexOf("}") - 1));
+  const startIndex = jsonString.indexOf('{ "comment1":');
+const endIndex = jsonString.lastIndexOf('"}') - 1;
+const trimmedJsonString = jsonString.substring(startIndex, endIndex);
+//const result = JSON.parse(trimmedJsonString);
+console.log(trimmedJsonString);
+  
+
+jsonString = trimmedJsonString+"}";
+const jsonObject = JSON.parse(jsonString);
+
 
   // Extracted comments
   const comments = {};
