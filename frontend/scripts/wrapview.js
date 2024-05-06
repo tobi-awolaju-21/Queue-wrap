@@ -125,27 +125,40 @@ console.log(parsedData0);
                 };
 
 
-                var stringWrap =  parsedData0.wrap;
-                document.getElementById("mytext").textContent = stringWrap;
+                var jsonString =  parsedData0.wrap;
+// Find the index of each comment
+                const commentIndices = [];
+                for (let i = 1; i <= 4; i++) {
+                  const commentKey = `comment${i}`;
+                  const startIndex = jsonString.indexOf(`"${commentKey}"`);
+                  if (startIndex !== -1) {
+                    commentIndices.push({ key: commentKey, index: startIndex });
+                  }
+                }
+                
+                // Sort the comment indices by their position in the string
+                commentIndices.sort((a, b) => a.index - b.index);
+                
+                // Extract the values of comment1, comment2, comment3, and comment4 using substring
+                const comments = {};
+                for (let i = 0; i < commentIndices.length; i++) {
+                  const { key, index } = commentIndices[i];
+                  const nextIndex = (i + 1 < commentIndices.length) ? commentIndices[i + 1].index : jsonString.length;
+                  const commentValue = jsonString.substring(index + key.length + 4, nextIndex - 5).trim(); // Adjusting for quotation marks and trailing comma
+                  comments[`c${i + 1}`] = commentValue;
+                }
+                
+                // Extracted comments
+                const { c1, c2, c3, c4 } = comments;
+                
+                console.log("Comment 1:", c1);
+                console.log("Comment 2:", c2);
+                console.log("Comment 3:", c3);
+                console.log("Comment 4:", c4);
+                
 
-
-                const jsonString = '{"text":"```json\n{\n\"comment1\": \"Your Style Vibe: #Snatched! You\'re all about confidence and bold looks that turn heads. 🤩\",\n\"comment2\": \"Your Fashion Aura: #DrippedOut! Effortlessly cool with a touch of mystery, you own your unique style. 😎\",\n\"comment3\": \"Your Outfit Energy: #Fleekin! Always on point, your outfits are a perfect blend of trendy and timeless. ✨\",\n\"comment4\": \"Your Look Language: #Bussin! You know how to rock any outfit and make it your own, with an extra dose of fabulousness. 💅\" \n}\n```"}';
-
-// Extracting JSON part from the string
-const jsonStartIndex = jsonString.indexOf('{');
-const jsonEndIndex = jsonString.lastIndexOf('}');
-const jsonStr = jsonString.substring(jsonStartIndex, jsonEndIndex + 1);
-
-// Parsing JSON
-const jsonData = JSON.parse(jsonStr);
-
-// Extracting comments
-const comment1 = jsonData.comment1.trim();
-const comment2 = jsonData.comment2.trim();
-const comment3 = jsonData.comment3.trim();
-const comment4 = jsonData.comment4.trim();
-
-console.log("comment1:", comment1);
-console.log("comment2:", comment2);
-console.log("comment3:", comment3);
-console.log("comment4:", comment4);
+                document.getElementById("mytext1").textContent = c1;
+                document.getElementById("mytext2").textContent = c2;
+                document.getElementById("mytext3").textContent = c3;
+                document.getElementById("mytext4").textContent = c4;
+ 
