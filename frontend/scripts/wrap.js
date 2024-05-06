@@ -114,3 +114,73 @@ if (storedWrap) {
 } else {
     // Handle case when 'currentWrap' is not found in localStorage
 }
+
+
+
+
+
+
+
+
+
+// Retrieve the user object from localStorage
+storedWrap = localStorage.getItem('currentWrap');
+const parsedData0 = JSON.parse(storedWrap);
+console.log(parsedData0);
+// start sending shittt to backend
+sendDataToBackend(parsedData0);
+async function sendDataToBackend(parsedData0) {
+    // JSON data to send to the backend
+    try {
+      const response = await fetch('https://queue-wrap.onrender.com/processData', {
+        method: 'POST',
+        headers:  {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(parsedData0)
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+        window.location.href = "wrap.html";
+      }
+
+      const processedString = await response.text();
+      console.log('Processed string from backend:', processedString);
+      
+      //push to firebase
+                var jsonData3 = {
+                    timestamp: parsedData0.timestamp,
+                    feeling: parsedData0.feeling,
+                    img1: parsedData0.img1,
+                    img2: parsedData0.img2,
+                    img3: parsedData0.img3,
+                    img4: parsedData0.img4,
+                    wrap: processedString
+                };
+                var ref = firebase.database().ref(path);
+
+                var key = parsedData0.feeling + "_" + parsedData0.timestamp;
+                ref.child(key).set(jsonData3, function (error) {
+                    if (error) {
+                        console.error("Data could not be saved." + error);
+                    } else {
+                        console.log("New wrap created");
+                        // update local storage
+                        localStorage.setItem('currentWrap', JSON.stringify(jsonData3));
+                        // Redirect to tasks.html when push is successful 
+                        window.location.href = "wrappview.html";
+                        //send this to the backend
+                        console.log(JSON.stringify(jsonData3))
+                    }
+                });
+      //end of push to firebase 
+
+       
+       
+    } catch (error) {
+      console.error('Error sending data to backend:', error);
+      window.location.href = "wrap.html";
+    }
+  }
+
