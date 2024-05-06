@@ -99,4 +99,6 @@ document.getElementById('share').addEventListener('click', function() {
 //closeclicked
 document.getElementById('close').addEventListener('click', function() {
   history.back();
+  history.back();
+  history.back();
 });
