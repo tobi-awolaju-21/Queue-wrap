@@ -136,7 +136,7 @@ console.log(parsedData0);
   jsonString = jsonString.replaceAll("\\n", "");
   jsonString = jsonString.replaceAll("\\", "");
 
-  const startIndex = jsonString.indexOf('{ "comment1":');
+  const startIndex = jsonString.indexOf('{"comment1":');
 const endIndex = jsonString.lastIndexOf('"}') - 1;
 const trimmedJsonString = jsonString.substring(startIndex, endIndex);
 //const result = JSON.parse(trimmedJsonString);
