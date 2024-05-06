@@ -10,7 +10,7 @@ buttons.forEach(button => {
 
 
 //next page
-document.getElementById("play0").addEventListener("click", function () {
+document.getElementById("play2").addEventListener("click", function () {
     // Add click animation class to the button
     this.classList.add("click-animation");
 // Retrieve the user object from localStorage
@@ -82,7 +82,7 @@ async function sendDataToBackend(parsedData0) {
 
 
 //next page
-document.getElementById("play2").addEventListener("click", function () {
+document.getElementById("play0").addEventListener("click", function () {
     // Add click animation class to the button
     this.classList.add("click-animation");
 
