@@ -151,21 +151,21 @@ body{
 
     
 .b1{
-    border-radius: 100px; /* Adjust the value to change the roundness */
-  background-color: #28ab65;
+    border-radius: 5px; /* Adjust the value to change the roundness */
+  background-color: rgb(255, 49, 49);
   margin-left: 8px;
   color:#ffffff;
   outline: none;
-  border: 1px solid #28ab65;
-  width: 100px;
-  height: 100px;
+  border: 1px solid rgb(255, 49, 49);
+  width: 65px;
+  height: 65px;
   font-size:xxx-large;
-  box-shadow: 14px 16px rgb(0, 103, 45); /* Add shadow */
+  box-shadow: 14px 16px rgb(0, 0, 0); /* Add shadow */
   }
   
   
   .b2{
-    border-radius: 100px; /* Adjust the value to change the roundness */
+    border-radius: 5px; /* Adjust the value to change the roundness */
   background-color: #afafaf;
   margin-left: 8px;
   color:#000000;
@@ -179,8 +179,8 @@ body{
   
 
   .b6{
-    border-radius: 100px; /* Adjust the value to change the roundness */
-  background-color: #e6acff;
+    border-radius: 10px; /* Adjust the value to change the roundness */
+  background-color: #ac00f6;
   margin-left: 8px;
   color:#000000;
   outline: none;
