@@ -98,10 +98,18 @@ function draw() {
 // Add event listener to the canvas
 function touchStarted() {
     if (touches.length > 0) {
-      // Redirect to "wrapview.html" when canvas is touched
-      window.location.href = "wrapview.html";
-    }
+      document.getElementById('preview').click();
   }
+}
+
+document.getElementById('preview').addEventListener('click', function() {
+  // Scale up the preview
+  this.style.transform = 'scale(2)';
+  // Redirect to "wrapview.html" after 500ms
+  setTimeout(function() {
+      window.location.href = "wrapview.html";
+  }, 500);
+});
      // end of p5 js sketch
    
 } else {
