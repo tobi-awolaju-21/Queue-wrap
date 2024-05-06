@@ -121,9 +121,9 @@ console.log(parsedData0);
                     img2: parsedData0.img2,
                     img3: parsedData0.img3,
                     img4: parsedData0.img4,
-                    wrap: processedString
+                    wrap: parsedData0.wrap
                 };
 
 
-                var stringWrap =  processedString;
+                var stringWrap =  parsedData0.wrap;
                 document.getElementById("mytext").textContent = stringWrap;
