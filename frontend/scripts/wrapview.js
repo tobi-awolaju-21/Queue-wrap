@@ -128,11 +128,12 @@ console.log(parsedData0);
 
                 document.getElementById("mytext0").textContent = parsedData0.wrap;
                 var jsonString =  parsedData0.wrap;
-  
+                const mytext0Value = document.getElementById("mytext0").textContent;
+
  // Extract JSON string from response
- const startIndex = jsonString.indexOf('{');
- const endIndex = jsonString.lastIndexOf('}') + 1;
- const jsonContent = jsonString.substring(startIndex, endIndex);
+ const startIndex = mytext0Value.indexOf('{');
+ const endIndex = mytext0Value.lastIndexOf('}') + 1;
+ const jsonContent = mytext0Value.substring(startIndex, endIndex);
 
  // Parse JSON string to object
  const jsonObject = JSON.parse(jsonContent);
