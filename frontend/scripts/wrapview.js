@@ -125,7 +125,10 @@ console.log(parsedData0);
                 };
 
 
+
+                document.getElementById("mytext1").textContent = parsedData0.wrap;
                 var jsonString =  parsedData0.wrap;
+                console
 // Find the index of each comment
                 const commentIndices = [];
                 for (let i = 1; i <= 4; i++) {
