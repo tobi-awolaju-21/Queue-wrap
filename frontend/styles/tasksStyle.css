@@ -180,15 +180,15 @@ body{
 
   .b6{
     border-radius: 10px; /* Adjust the value to change the roundness */
-  background-color: #ac00f6;
+  background-color: #8348d0;
   margin-left: 8px;
   color:#000000;
   outline: none;
-  border: 1px solid #e6acff;
+  border: 1px solid #8348d0;
   width: 100px;
   height: 100px;
   font-size:xxx-large;
-  box-shadow: 14px 16px rgb(35, 0, 35); /* Add shadow */
+  box-shadow: 14px 16px rgb(243, 255, 181); /* Add shadow */
   }
 
 
