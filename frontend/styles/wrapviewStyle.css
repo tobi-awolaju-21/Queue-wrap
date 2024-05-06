@@ -75,3 +75,9 @@ body {
     border: none; /* Remove default border */
     box-shadow: none; /* Remove shadow */
 }
+
+
+.mytextstyle{
+  font-style: 20px;
+  color: #ffffff;
+}

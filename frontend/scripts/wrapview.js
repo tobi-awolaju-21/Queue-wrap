@@ -102,3 +102,28 @@ document.getElementById('close').addEventListener('click', function() {
   history.back();
   history.back();
 });
+
+
+
+
+
+
+
+
+// Retrieve the user object from localStorage
+storedWrap = localStorage.getItem('currentWrap');
+const parsedData0 = JSON.parse(storedWrap);
+console.log(parsedData0);
+                var jsonData3 = {
+                    timestamp: parsedData0.timestamp,
+                    feeling: parsedData0.feeling,
+                    img1: parsedData0.img1,
+                    img2: parsedData0.img2,
+                    img3: parsedData0.img3,
+                    img4: parsedData0.img4,
+                    wrap: processedString
+                };
+
+
+                var stringWrap =  processedString;
+                document.getElementById("mytext").textContent = stringWrap;
