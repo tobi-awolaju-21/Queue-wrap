@@ -128,40 +128,34 @@ console.log(parsedData0);
 
                 document.getElementById("mytext0").textContent = parsedData0.wrap;
                 var jsonString =  parsedData0.wrap;
-              
-// Find the index of each comment
-                const commentIndices = [];
-                for (let i = 1; i <= 4; i++) {
-                  const commentKey = `comment${i}`;
-                  const startIndex = jsonString.indexOf(`"${commentKey}"`);
-                  if (startIndex !== -1) {
-                    commentIndices.push({ key: commentKey, index: startIndex });
-                  }
-                }
-                
-                // Sort the comment indices by their position in the string
-                commentIndices.sort((a, b) => a.index - b.index);
-                
-                // Extract the values of comment1, comment2, comment3, and comment4 using substring
-                const comments = {};
-                for (let i = 0; i < commentIndices.length; i++) {
-                  const { key, index } = commentIndices[i];
-                  const nextIndex = (i + 1 < commentIndices.length) ? commentIndices[i + 1].index : jsonString.length;
-                  const commentValue = jsonString.substring(index + key.length + 4, nextIndex - 5).trim(); // Adjusting for quotation marks and trailing comma
-                  comments[`c${i + 1}`] = commentValue;
-                }
-                
-                // Extracted comments
-                const { c1, c2, c3, c4 } = comments;
-                
-                console.log("Comment 1:", c1);
-                console.log("Comment 2:", c2);
-                console.log("Comment 3:", c3);
-                console.log("Comment 4:", c4);
-                
+  
+ // Extract JSON string from response
+ const startIndex = jsonString.indexOf('{');
+ const endIndex = jsonString.lastIndexOf('}') + 1;
+ const jsonContent = jsonString.substring(startIndex, endIndex);
 
-                document.getElementById("mytext1").textContent = c1;
-                document.getElementById("mytext2").textContent = c2;
-                document.getElementById("mytext3").textContent = c3;
-                document.getElementById("mytext4").textContent = c4;
- 
+ // Parse JSON string to object
+ const jsonObject = JSON.parse(jsonContent);
+
+ // Extracted comments
+ const comments = {};
+ for (let i = 1; i <= 4; i++) {
+   const commentKey = `comment${i}`;
+   const comment = jsonObject[commentKey];
+   if (comment) {
+     comments[`c${i}`] = comment.text;
+   }
+ }
+
+ const { c1, c2, c3, c4 } = comments;
+
+ console.log("Comment 1:", c1);
+ console.log("Comment 2:", c2);
+ console.log("Comment 3:", c3);
+ console.log("Comment 4:", c4);
+
+ // Update HTML elements with comment text
+ document.getElementById("mytext1").textContent = c1;
+ document.getElementById("mytext2").textContent = c2;
+ document.getElementById("mytext3").textContent = c3;
+ document.getElementById("mytext4").textContent = c4;

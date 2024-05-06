@@ -18,8 +18,13 @@
     }
   }`;
 
+ // Extract JSON string from response
+ const startIndex = jsonString.indexOf('{');
+  const endIndex = jsonString.lastIndexOf('}') + 1;
+  const jsonContent = jsonString.substring(startIndex, endIndex);
+
   // Parse JSON string to object
-  const jsonObject = JSON.parse(jsonString);
+  const jsonObject = JSON.parse(jsonContent);
 
   // Extracted comments
   const comments = {};
@@ -48,22 +53,3 @@
 
 
 
-
-{
-  "comment1": {
-    "title": "the title value",
-    "text": "text value"
-  },
-  "comment2": {
-    "title": "the title value",
-    "text": "text value"
-  },
-  "comment3": {
-    "title": "the title value",
-    "text": "text value"
-  },
-  "comment4": {
-    "title": "the title value",
-    "text": "text value"
-  }
-}
