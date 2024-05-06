@@ -1,5 +1,69 @@
 <script>
+  var jsonString = `{
+    "comment1": {
+      "title": "Lucky Vibes Outfit Recap 🍀",
+      "text": "You are #Snatched: Dripping in good fortune with every fit!"
+    },
+    "comment2": {
+      "title": "Fashion Fortune Teller 🔮",
+      "text": "You are #Bussin: Your style radiates lucky vibes wherever you go."
+    },
+    "comment3": {
+      "title": "Closet of Charms ✨",
+      "text": "You are #Fleekin: Attracting all the good luck with your killer looks!"
+    },
+    "comment4": {
+      "title": "Lucky Lookbook 💫",
+      "text": "You are #Goals: Serving up lucky lewks all year long!"
+    }
+  }`;
 
+  // Parse JSON string to object
+  const jsonObject = JSON.parse(jsonString);
 
+  // Extracted comments
+  const comments = {};
+  for (let i = 1; i <= 4; i++) {
+    const commentKey = `comment${i}`;
+    const comment = jsonObject[commentKey];
+    if (comment) {
+      comments[`c${i}`] = comment.text;
+    }
+  }
+
+  const { c1, c2, c3, c4 } = comments;
+
+  console.log("Comment 1:", c1);
+  console.log("Comment 2:", c2);
+  console.log("Comment 3:", c3);
+  console.log("Comment 4:", c4);
+
+  // Update HTML elements with comment text
+  document.getElementById("mytext1").textContent = c1;
+  document.getElementById("mytext2").textContent = c2;
+  document.getElementById("mytext3").textContent = c3;
+  document.getElementById("mytext4").textContent = c4;
 
 </script>
+
+
+
+
+{
+  "comment1": {
+    "title": "the title value",
+    "text": "text value"
+  },
+  "comment2": {
+    "title": "the title value",
+    "text": "text value"
+  },
+  "comment3": {
+    "title": "the title value",
+    "text": "text value"
+  },
+  "comment4": {
+    "title": "the title value",
+    "text": "text value"
+  }
+}
